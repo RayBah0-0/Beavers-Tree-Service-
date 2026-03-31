@@ -10,7 +10,7 @@ import ServiceDetail from './pages/ServiceDetail';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
-import { FloatingCallCTA, ChatWidget } from './components/GlobalWidgets';
+import { ChatWidget } from './components/GlobalWidgets';
 
 function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -22,7 +22,6 @@ function Layout({ children }: { children: React.ReactNode }) {
       <Footer />
       <ScrollToTop />
       {/* Global conversion widgets — appear on every page */}
-      <FloatingCallCTA />
       <ChatWidget />
     </div>
   );

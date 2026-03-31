@@ -2,61 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Phone, X } from 'lucide-react';
 
-// ── 1. STICKY FLOATING CALL CTA ──────────────────────────────
-export function FloatingCallCTA() {
-  const [visible, setVisible] = useState(false);
-  const [dismissed, setDismissed] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => {
-      if (window.scrollY > 300) setVisible(true);
-      else setVisible(false);
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  if (dismissed) return null;
-
-  return (
-    <AnimatePresence>
-      {visible && (
-        <motion.div
-          initial={{ opacity: 0, y: 40, scale: 0.85 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 40, scale: 0.85 }}
-          transition={{ type: 'spring', bounce: 0.4 }}
-          className="fixed bottom-6 right-6 z-[90] flex items-center gap-2"
-        >
-          <a
-            href="tel:919-358-2168"
-            id="floating-call-btn"
-            className="flex items-center gap-3 bg-[#FF8200] text-black font-black px-5 py-4 rounded-full shadow-2xl hover:bg-black hover:text-[#FF8200] transition-all group border-4 border-black"
-            style={{ boxShadow: '0 0 0 4px rgba(255,130,0,0.25), 0 20px 50px rgba(0,0,0,0.4)' }}
-          >
-            {/* Animated ring */}
-            <span className="relative flex h-8 w-8 items-center justify-center">
-              <span className="absolute inset-0 rounded-full bg-black/20 animate-ping group-hover:animate-none" />
-              <Phone className="w-5 h-5 relative z-10 group-hover:rotate-12 transition-transform" />
-            </span>
-            <span className="text-sm uppercase tracking-widest leading-none">
-              Call Now<br />
-              <span className="font-sans font-bold text-xs">(919) 358-2168</span>
-            </span>
-          </a>
-          <button
-            onClick={() => setDismissed(true)}
-            className="bg-black text-white rounded-full p-1.5 shadow-lg hover:bg-[#FF8200] transition-colors border-2 border-[#FF8200]"
-            aria-label="Dismiss"
-          >
-            <X className="w-3 h-3" />
-          </button>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  );
-}
-
 // ── 2. LIVE WHATSAPP CHAT WIDGET ──────────────────────────────
 export function ChatWidget() {
   const [open, setOpen] = useState(false);
