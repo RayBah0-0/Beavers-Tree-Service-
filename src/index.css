@@ -2,8 +2,8 @@
 @import "tailwindcss";
 
 /* ============================================================
-   BEAVERS TREE SERVICE — ANTI-GRAVITY DESIGN SYSTEM
-   Palette: #FF8200 (Stihl Orange) | #000000 (Black) | #FFFFFF (White)
+   BEAVERS TREE SERVICE — DESIGN SYSTEM
+   Palette: #FF8200 | #000000 | #FFFFFF
    ============================================================ */
 
 @theme {
@@ -43,7 +43,7 @@
 }
 
 /* ============================================================
-   ANTI-GRAVITY SCROLL ANIMATIONS
+   SCROLL ANIMATIONS
    ============================================================ */
 
 /* Fade + Rise (20px) — applied to all stacked sections */
@@ -100,7 +100,7 @@
 }
 
 /* ============================================================
-   IMAGE — ANTI-GRAVITY LIFT (for About & Gallery)
+   IMAGE — HOVER LIFT (for About & Gallery)
    ============================================================ */
 .img-lift {
   transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -188,7 +188,7 @@
 }
 
 /* ============================================================
-   NAVBAR — STIHL ORANGE CONTACT INFO
+   NAVBAR — CONTACT INFO
    ============================================================ */
 .nav-contact-info {
   color: #FF8200;

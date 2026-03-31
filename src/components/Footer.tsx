@@ -36,7 +36,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Contact Column — Stihl Orange links with ring animation */}
+          {/* Contact Column */}
           <div>
             <h4 className="font-display font-black text-xl mb-6 text-white uppercase tracking-wide">Contact Us</h4>
             <ul className="space-y-6">
