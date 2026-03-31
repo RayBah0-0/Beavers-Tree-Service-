@@ -1,0 +1,153 @@
+Total images to check: 116
+[
+  {
+    "a": {
+      "cat": "concrete",
+      "file": "IMG_2104.jpg",
+      "path": "public\\project-gallery\\concrete\\IMG_2104.jpg",
+      "hash": "9_ks01N0000"
+    },
+    "b": {
+      "cat": "concrete",
+      "file": "IMG_4924.jpg",
+      "path": "public\\project-gallery\\concrete\\IMG_4924.jpg",
+      "hash": "9_ks01N0000"
+    },
+    "distance": 0
+  },
+  {
+    "a": {
+      "cat": "concrete",
+      "file": "IMG_2105.jpg",
+      "path": "public\\project-gallery\\concrete\\IMG_2105.jpg",
+      "hash": "9iE7PLz1M85"
+    },
+    "b": {
+      "cat": "concrete",
+      "file": "IMG_4969.jpg",
+      "path": "public\\project-gallery\\concrete\\IMG_4969.jpg",
+      "hash": "9iE7PLz1M85"
+    },
+    "distance": 0
+  },
+  {
+    "a": {
+      "cat": "concrete",
+      "file": "IMG_2110.jpg",
+      "path": "public\\project-gallery\\concrete\\IMG_2110.jpg",
+      "hash": "dbO80cMg188"
+    },
+    "b": {
+      "cat": "concrete",
+      "file": "IMG_5202.jpg",
+      "path": "public\\project-gallery\\concrete\\IMG_5202.jpg",
+      "hash": "dbO80cMg188"
+    },
+    "distance": 0
+  },
+  {
+    "a": {
+      "cat": "excavation",
+      "file": "img-2873.jpg",
+      "path": "public\\project-gallery\\excavation\\img-2873.jpg",
+      "hash": "eo0e70s0088"
+    },
+    "b": {
+      "cat": "excavation",
+      "file": "IMG_2873.jpg",
+      "path": "public\\project-gallery\\excavation\\IMG_2873.jpg",
+      "hash": "eo0e70s0088"
+    },
+    "distance": 0
+  },
+  {
+    "a": {
+      "cat": "excavation",
+      "file": "IMG_2127.jpg",
+      "path": "public\\project-gallery\\excavation\\IMG_2127.jpg",
+      "hash": "ep000000000"
+    },
+    "b": {
+      "cat": "excavation",
+      "file": "IMG_6335.jpg",
+      "path": "public\\project-gallery\\excavation\\IMG_6335.jpg",
+      "hash": "ep000000000"
+    },
+    "distance": 0
+  },
+  {
+    "a": {
+      "cat": "foundation",
+      "file": "img-3539.jpg",
+      "path": "public\\project-gallery\\foundation\\img-3539.jpg",
+      "hash": "fYt02203010"
+    },
+    "b": {
+      "cat": "foundation",
+      "file": "IMG_3539.jpg",
+      "path": "public\\project-gallery\\foundation\\IMG_3539.jpg",
+      "hash": "fYt02203010"
+    },
+    "distance": 0
+  },
+  {
+    "a": {
+      "cat": "foundation",
+      "file": "IMG_2149.jpg",
+      "path": "public\\project-gallery\\foundation\\IMG_2149.jpg",
+      "hash": "cwcA46gg1g0"
+    },
+    "b": {
+      "cat": "foundation",
+      "file": "IMG_6662.jpg",
+      "path": "public\\project-gallery\\foundation\\IMG_6662.jpg",
+      "hash": "cwcA46gg1g0"
+    },
+    "distance": 0
+  },
+  {
+    "a": {
+      "cat": "foundation",
+      "file": "IMG_2150.jpg",
+      "path": "public\\project-gallery\\foundation\\IMG_2150.jpg",
+      "hash": "e6N40y1gw04"
+    },
+    "b": {
+      "cat": "foundation",
+      "file": "IMG_6663.jpg",
+      "path": "public\\project-gallery\\foundation\\IMG_6663.jpg",
+      "hash": "e6N40y1gw04"
+    },
+    "distance": 0
+  },
+  {
+    "a": {
+      "cat": "foundation",
+      "file": "IMG_2152.jpg",
+      "path": "public\\project-gallery\\foundation\\IMG_2152.jpg",
+      "hash": "c9N8521go8A"
+    },
+    "b": {
+      "cat": "foundation",
+      "file": "IMG_6665.jpg",
+      "path": "public\\project-gallery\\foundation\\IMG_6665.jpg",
+      "hash": "c9N85algo8A"
+    },
+    "distance": 2
+  },
+  {
+    "a": {
+      "cat": "retaining-walls",
+      "file": "IMG_2132.jpg",
+      "path": "public\\project-gallery\\retaining-walls\\IMG_2132.jpg",
+      "hash": "fB012100000"
+    },
+    "b": {
+      "cat": "hardscaping",
+      "file": "IMG_5189.jpg",
+      "path": "public\\project-gallery\\hardscaping\\IMG_5189.jpg",
+      "hash": "fB012100008"
+    },
+    "distance": 1
+  }
+]
