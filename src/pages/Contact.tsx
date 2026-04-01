@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Send, CheckCircle2, Phone, Mail, MapPin, TreeDeciduous, ArrowUpRight } from 'lucide-react';
+import { Send, CheckCircle2, Phone, Mail, MapPin, TreeDeciduous, ArrowUpRight, Loader2, AlertCircle } from 'lucide-react';
 
-function RevealSection({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
+function RevealSection({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number; key?: React.Key }) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const el = ref.current;
@@ -67,6 +67,17 @@ function PageConfetti() {
 }
 
 /* Full-page success overlay */
+/* --- LOADING SPINNER COMPONENT --- */
+function LoadingSpinner() {
+  return (
+    <motion.div
+      animate={{ rotate: 360 }}
+      transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+      className="w-6 h-6 border-4 border-white/30 border-t-white rounded-full"
+    />
+  );
+}
+
 function SuccessOverlay({ onReset }: { onReset: () => void }) {
   return (
     <motion.div
@@ -137,7 +148,8 @@ function SuccessOverlay({ onReset }: { onReset: () => void }) {
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -148,22 +160,22 @@ export default function Contact() {
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
           name: formData.name,
-          email: formData.email,
-          _replyto: formData.email,
-          _subject: formData.subject || 'New Contact Form Submission',
-          message: formData.message
+          contactInfo: formData.email,
+          serviceNeeded: formData.subject,
+          message: formData.message,
+          _subject: `New Request from ${formData.name}`
         })
       });
       if (response.ok) {
         setStatus('success');
         setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
-        setStatus('idle');
-        alert("Oops! There was a problem submitting your form. Please try again.");
+        setStatus('error');
+        setErrorMessage("Oops! There was a problem submitting your form. Please try again.");
       }
     } catch {
-      setStatus('idle');
-      alert("Network error. Please try again.");
+      setStatus('error');
+      setErrorMessage("Network error. Please check your connection and try again.");
     }
   };
 
@@ -196,7 +208,7 @@ export default function Contact() {
       </section>
 
       {/* 2. FORM & INFO — Breathable vertical stacked layout */}
-      <section className="py-28 bg-white">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
@@ -297,6 +309,20 @@ export default function Contact() {
                       We typically respond within a few hours.
                     </p>
 
+                    <AnimatePresence>
+                      {status === 'error' && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: 'auto' }}
+                          exit={{ opacity: 0, height: 0 }}
+                          className="bg-red-500/10 border border-red-500/50 rounded p-4 mb-4 flex items-start gap-3"
+                        >
+                          <AlertCircle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
+                          <p className="text-red-200 text-sm font-medium">{errorMessage}</p>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+
                     {/* Name */}
                     <div>
                       <label className="block text-white font-bold text-sm mb-2 uppercase tracking-wide">
@@ -361,15 +387,48 @@ export default function Contact() {
                       />
                     </div>
 
-                    <button
+                    <motion.button
                       type="submit"
                       disabled={status === 'submitting'}
                       id="contact-submit"
-                      className="btn-pulse w-full py-5 rounded font-black uppercase tracking-widest text-lg shadow-xl mt-2 flex items-center justify-center gap-2"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="btn-pulse w-full py-5 rounded-lg font-black uppercase tracking-widest text-lg shadow-xl mt-2 flex items-center justify-center gap-3 relative overflow-hidden"
                     >
-                      <Send className="w-5 h-5" />
-                      {status === 'submitting' ? 'SENDING...' : 'GET YOUR FREE ESTIMATE'}
-                    </button>
+                      <AnimatePresence mode="wait">
+                        {status === 'submitting' ? (
+                          <motion.div
+                            key="loading"
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            className="flex items-center gap-3"
+                          >
+                            <LoadingSpinner />
+                            <span>Sending...</span>
+                          </motion.div>
+                        ) : (
+                          <motion.div
+                            key="idle"
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            className="flex items-center gap-3"
+                          >
+                            <Send className="w-5 h-5" />
+                            <span>Get Your Free Estimate</span>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                      {/* Pulse ring effect during idle */}
+                      {status === 'idle' && (
+                        <motion.div
+                          animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.1, 0.3] }}
+                          transition={{ repeat: Infinity, duration: 2 }}
+                          className="absolute inset-0 bg-white/20 pointer-events-none"
+                        />
+                      )}
+                    </motion.button>
                   </form>
                 )}
               </div>

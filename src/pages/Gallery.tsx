@@ -13,7 +13,7 @@ const PROJECT_PHOTOS = [
   { file: 'showcase (8).jpg', caption: 'Tree Trimming' },
 ];
 
-function RevealSection({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
+function RevealSection({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number; key?: React.Key }) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const el = ref.current;
@@ -75,7 +75,7 @@ export default function Gallery() {
       </section>
 
       {/* 2. GALLERY GRID — Shadow-Mask hover system */}
-      <section className="py-28 bg-white">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <RevealSection>
             <h2 className="text-4xl md:text-5xl font-display font-black text-black mb-4 leading-tight uppercase">

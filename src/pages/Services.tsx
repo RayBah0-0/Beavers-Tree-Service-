@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ShieldCheck, ArrowUpRight, CheckCircle2, Phone, TreeDeciduous, Axe, Leaf } from 'lucide-react';
 import { motion } from 'motion/react';
 
-function RevealSection({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
+function RevealSection({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number; key?: React.Key }) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const el = ref.current;
@@ -94,7 +94,7 @@ export default function Services() {
       </section>
 
       {/* 3. TREE SERVICES — BLACK background for maximum contrast */}
-      <section id="tree-services" className="py-28 bg-black">
+      <section id="tree-services" className="py-20 bg-black">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
@@ -108,7 +108,7 @@ export default function Services() {
                 EXPERT <span className="text-[#FF8200]">TREE</span> SERVICES
               </h2>
               <p className="text-white/80 mb-6 font-medium text-lg leading-relaxed">
-                At Beavers Tree Service &amp; Landscaping Inc., we provide professional tree care designed to keep your property safe, healthy, and beautiful year round. With over 20 years of experience, our licensed and insured team handles everything from routine maintenance to complex removals.
+                At Beavers Tree Service &amp; Landscaping Inc., we provide professional tree care designed to keep your property safe, healthy, and beautiful year round. With over 25 years of experience, our licensed and insured team handles everything from routine maintenance to complex removals.
               </p>
               <p className="text-white font-bold text-lg mb-10">
                 Unlike big corporate providers, we are a local, family owned company that treats your property like our own. Every project starts with a free estimate, honest advice, and a commitment to safety, affordability, and customer satisfaction.
@@ -167,7 +167,7 @@ export default function Services() {
       </section>
 
       {/* 5. LANDSCAPING SERVICES — WHITE BG (alternating contrast) */}
-      <section id="landscaping-services" className="py-28 bg-white">
+      <section id="landscaping-services" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
@@ -225,7 +225,7 @@ export default function Services() {
         <div className="max-w-7xl mx-auto px-6">
           <RevealSection className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             {[
-              { value: 20, suffix: '+', label: 'Years of Experience' },
+              { value: 25, suffix: '+', label: 'Years of Experience' },
               { value: 500, suffix: '+', label: 'Jobs Completed' },
               { value: 100, suffix: '%', label: 'Satisfaction Guaranteed' },
             ].map(({ value, suffix, label }) => {
@@ -265,7 +265,7 @@ export default function Services() {
       </section>
 
       {/* 7. BOTTOM CTA BANNER — BLACK */}
-      <section className="bg-black text-white py-28">
+      <section className="bg-black text-white py-20">
         <RevealSection className="max-w-5xl mx-auto px-6 text-center">
           <h3 className="text-3xl md:text-5xl text-white font-display font-black mb-6 uppercase leading-tight">
             READY TO TRANSFORM YOUR <span className="text-[#FF8200]">PROPERTY?</span>

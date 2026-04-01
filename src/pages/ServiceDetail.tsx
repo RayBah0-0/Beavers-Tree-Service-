@@ -177,7 +177,7 @@ function BeforeAfterSlider({ before, after, beforeLabel = 'Before', afterLabel =
 }
 
 /* ── SCROLL REVEAL ─────────────────────────────────────── */
-function RevealSection({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
+function RevealSection({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number; key?: React.Key }) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const el = ref.current;
@@ -218,8 +218,8 @@ const SERVICES_DATA: Record<string, {
     title: 'Tree Removal', category: 'Tree Services',
     subHeadline: 'Safe and Professional Tree Removal',
     description: [
-      'At Beavers Tree Service and Landscaping Inc., we specialize in safe and efficient tree removal for residential and commercial properties. With over 20 years of combined experience, our licensed and insured team handles everything from routine removals to complex crane assisted projects.',
-      'We prioritize the safety of your home and landscape while providing reliable and affordable service. Whether a tree is dead, diseased, or posing a threat to your property, we are here to help. Call or text us today for your free estimate!'
+      'At Beavers Tree Service and Landscaping Inc., we specialize in safe and efficient tree removal for residential and commercial properties. With over 25 years of combined experience, our licensed and insured team handles everything from routine removals to complex crane assisted projects.',
+      'We prioritize the safety of your home and landscape while providing reliable and professional service. Whether a tree is dead, diseased, or posing a threat to your property, we are here to help. Call or text us today for your free estimate!'
     ],
     treeServices: ['Licensed & Insured Crew', 'Free Estimates', 'Full Site Cleanup', 'Crane Assisted Removals Available'],
     image: '/showcase (3).jpg'
@@ -309,7 +309,7 @@ const SERVICES_DATA: Record<string, {
     subHeadline: 'Custom Fencing for Security, Privacy, and Style',
     description: [
       'At Beavers Tree Service and Landscaping Inc., we provide expert fencing solutions for residential and commercial properties throughout the Triangle. From durable wood and vinyl fences to chain link and decorative metal, our licensed and insured team ensures precise installation and long lasting results.',
-      'Whether you want to secure your home or define a professional outdoor space for your business, we deliver custom fencing with quality craftsmanship and affordable pricing. Call or text us today for your free estimate!'
+      'Whether you want to secure your home or define a professional outdoor space for your business, we deliver custom fencing with quality craftsmanship and fair pricing. Call or text us today for your free estimate!'
     ],
     treeServices: ['Wood & Vinyl Fences', 'Chain Link & Metal', 'Privacy & Security', 'Precise Installation'],
     image: '/showcase (8).jpg'
@@ -378,7 +378,7 @@ export default function ServiceDetail() {
       </section>
 
       {/* 2. CONTENT SECTION — themed background */}
-      <section className={`py-20 md:py-28 ${theme.heroBg} border-b-4 ${theme.blockBorder}`}>
+      <section className={`py-16 md:py-20 ${theme.heroBg} border-b-4 ${theme.blockBorder}`}>
         <div className="max-w-4xl mx-auto px-6 flex flex-col items-center text-center">
 
           <RevealSection>

@@ -10,7 +10,7 @@ export function ChatWidget() {
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${prefilledMsg}`;
 
   return (
-    <div className="fixed bottom-6 left-6 z-[90] flex flex-col items-start gap-3">
+    <div className="fixed bottom-6 right-6 z-[90] flex flex-col items-end gap-3">
       <AnimatePresence>
         {open && (
           <motion.div

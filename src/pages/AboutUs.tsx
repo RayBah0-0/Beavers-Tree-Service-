@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ShieldCheck, ArrowUpRight, CheckCircle2, Phone, TreeDeciduous } from 'lucide-react';
 
-function RevealSection({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
+function RevealSection({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number; key?: React.Key }) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const el = ref.current;
@@ -61,7 +61,7 @@ export default function AboutUs() {
       </section>
 
       {/* 2. FAMILY OWNED section */}
-      <section className="py-28 bg-white">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
@@ -79,7 +79,7 @@ export default function AboutUs() {
             <RevealSection delay={150}>
               {/* 20+ Years badge — Bold Black block, Orange text — ANCHORED (not floating) */}
               <div className="years-badge mb-8">
-                <span className="years-number">20+</span>
+                <span className="years-number">25+</span>
                 <span className="years-label">Years Experience</span>
               </div>
 
@@ -92,11 +92,11 @@ export default function AboutUs() {
               </h2>
 
               <p className="text-black/80 mb-6 font-medium text-[17px] leading-relaxed">
-                Beavers Tree Service and Landscaping Inc. is a local, family owned company based in North Carolina, proudly serving Raleigh, Cary, Apex, Clayton, Durham, Garner, Chapel Hill, and surrounding areas. With over 20 years of experience, we specialize in a wide range of residential tree and landscaping services including tree removal, trimming, cutting, storm cleanup, ornamental pruning, junk removal, and more.
+                Beavers Tree Service and Landscaping Inc. is a local, family owned company based in North Carolina, proudly serving Raleigh, Cary, Apex, Clayton, Durham, Garner, Chapel Hill, and surrounding areas. With over 25 years of experience, we specialize in a wide range of residential tree and landscaping services including tree removal, trimming, cutting, storm cleanup, ornamental pruning, junk removal, and more.
               </p>
 
               <p className="text-black/80 mb-6 font-medium text-[17px] leading-relaxed">
-                We have earned our reputation by putting customer satisfaction, safety, and honest work at the heart of everything we do. Our team is fully licensed and insured, and we offer affordable pricing with free estimates to help homeowners make informed decisions without pressure.
+                We have earned our reputation by putting customer satisfaction, safety, and honest work at the heart of everything we do. Our team is fully licensed and insured, and we offer fair, transparent pricing with free estimates to help homeowners make informed decisions without pressure.
               </p>
 
               <p className="text-black mb-10 font-bold text-[17px] leading-relaxed">
@@ -112,7 +112,7 @@ export default function AboutUs() {
       </section>
 
       {/* 3. OUR GUARANTEE — "Bold Black Block with Orange Text" (per Edit 22) */}
-      <section className="bg-black py-28 text-white">
+      <section className="bg-black py-20 text-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <RevealSection>
@@ -128,10 +128,10 @@ export default function AboutUs() {
 
               <div className="space-y-6 text-white/80 font-medium text-[17px] leading-relaxed mb-10">
                 <p>
-                  At Beavers Tree Service and Landscaping Inc., we take pride in being a licensed and insured, family owned business with over 20 years of experience in the tree industry. We proudly serve the Triangle area of North Carolina, including Raleigh, Cary, Apex, Clayton, Durham, Garner, Chapel Hill, and nearby cities.
+                  At Beavers Tree Service and Landscaping Inc., we take pride in being a licensed and insured, family owned business with over 25 years of experience in the tree industry. We proudly serve the Triangle area of North Carolina, including Raleigh, Cary, Apex, Clayton, Durham, Garner, Chapel Hill, and nearby cities.
                 </p>
                 <p>
-                  Our promise is simple: to deliver safe, affordable, and high quality service with honesty and professionalism. Whether it is trimming, cutting, or full tree removal, we approach every job with care, precision, and a focus on customer satisfaction. We offer expert advice on whether a tree can be saved or should be removed — and when removal is necessary, we use the proper equipment and safety practices to handle the job efficiently.
+                  Our promise is simple: to deliver safe, fair, and high quality service with honesty and professionalism. Whether it is trimming, cutting, or full tree removal, we approach every job with care, precision, and a focus on customer satisfaction. We offer expert advice on whether a tree can be saved or should be removed — and when removal is necessary, we use the proper equipment and safety practices to handle the job efficiently.
                 </p>
                 <p>
                   We understand that every homeowner's needs are different, and we are here to help you protect your property while enhancing your landscape. We are also a bilingual team (English &amp; Spanish), ensuring clear communication and reliable service for a wider community. When you choose Beavers Tree Service and Landscaping Inc., you are choosing local professionals who treat your property like our own.
@@ -142,7 +142,7 @@ export default function AboutUs() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
                 {[
                   'Licensed & Insured', 'Free Estimates', 'Bilingual Service', 'Family Owned',
-                  'Affordable Pricing', 'Professional Results'
+                  'Fair Pricing', 'Professional Results'
                 ].map(item => (
                   <div key={item} className="flex items-center gap-3 text-white font-bold">
                     <CheckCircle2 className="w-5 h-5 text-[#FF8200] shrink-0" />

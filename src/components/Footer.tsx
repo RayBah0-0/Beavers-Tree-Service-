@@ -4,13 +4,13 @@ import { MapPin, Phone, Mail, CheckCircle2 } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-black border-t-4 border-[#FF8200] pt-20 pb-12 overflow-hidden relative">
+    <footer className="bg-black border-t-4 border-[#FF8200] pt-16 pb-12 overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
 
           {/* Brand Column */}
           <div className="lg:col-span-2">
-            <Link to="/" className="inline-block mb-8 bg-white/5 p-4 rounded border border-white/10 hover:border-[#FF8200]/50 transition-colors">
+            <Link to="/" className="inline-block mb-8 bg-white p-4 rounded-lg shadow-xl hover:border-[#FF8200]/50 transition-all">
               <img
                 src="/Logo with text.png"
                 alt="Beavers Tree Service Logo"
@@ -23,7 +23,7 @@ export default function Footer() {
             <div className="flex flex-col gap-3">
               <div className="flex items-center gap-2 text-white font-bold">
                 <CheckCircle2 className="w-5 h-5 text-[#FF8200]" />
-                20+ Years Experience
+                25+ Years Experience
               </div>
               <div className="flex items-center gap-2 text-white font-bold">
                 <CheckCircle2 className="w-5 h-5 text-[#FF8200]" />

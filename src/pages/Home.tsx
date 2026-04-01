@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { Phone, ArrowUpRight, CheckCircle2, ShieldCheck, Mail, Play, ChevronDown, Star, TreeDeciduous, X, Send } from 'lucide-react';
+import { Phone, ArrowUpRight, CheckCircle2, ShieldCheck, Mail, Play, ChevronDown, Star, TreeDeciduous, X, Send, Sprout, AlertCircle } from 'lucide-react';
 import { cn } from '../lib/utils';
 
 // Confetti particle for success animation
@@ -124,7 +124,7 @@ function useScrollReveal() {
   return ref;
 }
 
-function RevealSection({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
+function RevealSection({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number; key?: React.Key }) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const el = ref.current;
@@ -188,7 +188,7 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-lg md:text-xl text-white/90 font-medium mb-10 max-w-3xl"
           >
-            Family owned, licensed, and insured with over 20 years of experience. Serving Raleigh, Cary, Clayton, Durham, Apex &amp; surrounding NC areas.
+            Family owned, licensed, and insured with over 25 years of experience. Serving Raleigh, Cary, Clayton, Durham, Apex &amp; surrounding NC areas.
           </motion.p>
 
           <motion.div
@@ -209,7 +209,7 @@ export default function Home() {
       </section>
 
       {/* 2. ABOUT US / FAMILY OWNED */}
-      <section className="py-28 bg-white">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left — stacked images */}
@@ -224,9 +224,9 @@ export default function Home() {
 
             {/* Right — text */}
             <RevealSection delay={150}>
-              {/* 20+ Years badge with spacing from who we are pill */}
+              {/* 25+ Years badge with spacing from who we are pill */}
               <div className="years-badge mb-6">
-                <span className="years-number">20+</span>
+                <span className="years-number">25+</span>
                 <span className="years-label">Years Experience</span>
               </div>
 
@@ -242,7 +242,7 @@ export default function Home() {
               </h2>
 
               <p className="text-black mb-6 font-medium text-lg leading-relaxed">
-                Welcome to Beavers Tree Service and Landscaping Inc., where we are more than just a tree company — we are your neighbors! With over 20 years of combined experience, our fully licensed and insured team provides safe, affordable, and high quality care throughout the Triangle and beyond. We take great pride in offering bilingual service (English &amp; Spanish) to ensure every homeowner feels heard and supported.
+                Welcome to Beavers Tree Service and Landscaping Inc., where we are more than just a tree company — we are your neighbors! With over 25 years of combined experience, our fully licensed and insured team provides safe, professional, and high quality care throughout the Triangle and beyond. We take great pride in offering bilingual service (English &amp; Spanish) to ensure every homeowner feels heard and supported.
               </p>
               <p className="text-black mb-10 font-medium text-lg leading-relaxed">
                 Whether you need a simple trim or a complex crane assisted removal, we bring honesty, professionalism, and care to every project. We are excited to help you protect and beautify your property. Call or text us today for your free estimate!
@@ -268,7 +268,7 @@ export default function Home() {
       </section>
 
       {/* 3. WHY CHOOSE US */}
-      <section className="bg-black py-28 text-white">
+      <section className="bg-black py-20 text-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <RevealSection>
@@ -276,7 +276,7 @@ export default function Home() {
                 <ShieldCheck className="w-4 h-4 text-[#FF8200]" /> Why Choose Us
               </div>
               <h2 className="text-4xl md:text-5xl text-white font-display font-black mb-12 uppercase leading-tight">
-                LICENSED, INSURED, <br /> &amp; AFFORDABLE
+                LICENSED, INSURED, <br /> &amp; FAIR PRICING
               </h2>
               <div className="space-y-8">
                 {[
@@ -316,7 +316,7 @@ export default function Home() {
       </section>
 
       {/* 4. SERVICES — Breathable vertical cards */}
-      <section className="bg-white py-28">
+      <section className="bg-white py-20">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <RevealSection>
             <div className="inline-flex items-center justify-center gap-2 border border-black/20 rounded px-4 py-2 mb-6 text-sm font-bold text-black uppercase tracking-widest bg-white/50">
@@ -340,13 +340,7 @@ export default function Home() {
                 path: '/services'
               },
               {
-                icon: (
-                  <svg className="w-16 h-16" viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="3">
-                    <rect x="8" y="40" width="48" height="16" rx="2" />
-                    <path d="M16 40 Q24 20 32 16 Q40 20 48 40" />
-                    <path d="M12 40 Q20 28 32 24 Q44 28 52 40" strokeOpacity="0.5" />
-                  </svg>
-                ),
+                icon: <Sprout className="w-16 h-16" />,
                 title: 'Landscaping Services',
                 desc: 'From sod installation to retaining walls and expert lawn care, we build and maintain beautiful outdoor spaces.',
                 path: '/services'
@@ -374,7 +368,7 @@ export default function Home() {
       </section>
 
       {/* 5. LATEST PROJECTS */}
-      <section className="py-28 bg-white border-t border-black/5 text-center">
+      <section className="py-20 bg-white border-t border-black/5 text-center">
         <div className="max-w-screen-2xl mx-auto px-6">
           <RevealSection>
             <h2 className="text-4xl md:text-5xl font-display font-black text-black mb-4 uppercase leading-tight">
@@ -404,7 +398,7 @@ export default function Home() {
       <VideoSection />
 
       {/* 7. FAQ */}
-      <section className="bg-black text-white py-28">
+      <section className="bg-black text-white py-20">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <RevealSection>
             <div className="inline-flex items-center justify-center gap-2 border border-white/20 rounded px-4 py-2 mb-6 text-sm font-bold uppercase tracking-widest text-white mx-auto">
@@ -449,7 +443,7 @@ export default function Home() {
       </section>
 
       {/* 8. TESTIMONIALS MARQUEE */}
-      <section className="py-28 bg-black text-center overflow-hidden">
+      <section className="py-20 bg-black text-center overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 mb-12">
           <RevealSection>
             <div className="inline-flex items-center gap-2 border border-white/20 rounded px-4 py-2 mb-6 text-sm font-bold uppercase tracking-widest text-white">
@@ -530,7 +524,7 @@ function VideoSection() {
   }, [activeVideo]);
 
   return (
-    <section className="py-28 bg-white text-center border-t border-black/5">
+    <section className="py-20 bg-white text-center border-t border-black/5">
       <div className="max-w-7xl mx-auto px-6">
         <div className="inline-flex items-center gap-2 border border-black/20 rounded px-4 py-2 mb-6 text-sm font-bold uppercase tracking-widest text-black bg-white">
           <Play className="w-4 h-4 text-[#FF8200]" fill="currentColor" /> Our Work In Action
@@ -629,9 +623,20 @@ function VideoSection() {
 }
 
 /* ─── HOME CONTACT FORM ───────────────────────────── */
+function LoadingSpinner() {
+  return (
+    <motion.div
+      animate={{ rotate: 360 }}
+      transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+      className="w-6 h-6 border-4 border-white/30 border-t-white rounded-full"
+    />
+  );
+}
+
 function HomeContactForm() {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', address: '', description: '' });
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
   const [showConfetti, setShowConfetti] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -643,11 +648,11 @@ function HomeContactForm() {
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
           name: formData.name,
-          email: formData.email,
+          contactInfo: formData.email,
           phone: formData.phone,
           address: formData.address,
           message: formData.description,
-          _subject: 'New Estimate Request from Home Page'
+          _subject: `Home Page Request from ${formData.name}`
         })
       });
       if (res.ok) {
@@ -655,10 +660,12 @@ function HomeContactForm() {
         setShowConfetti(true);
         setTimeout(() => setShowConfetti(false), 2000);
       } else {
-        setStatus('idle');
+        setStatus('error');
+        setErrorMessage("Submission failed. Please try again or call us directly.");
       }
     } catch {
-      setStatus('idle');
+      setStatus('error');
+      setErrorMessage("Network error. Please check your connection.");
     }
   };
 
@@ -667,16 +674,16 @@ function HomeContactForm() {
       <div className="max-w-7xl mx-auto px-6 py-0">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
           {/* Left Copy */}
-          <div className="py-28 pr-0 lg:pr-16">
+          <div className="py-20 pr-0 lg:pr-16">
             <div>
               <div className="inline-flex items-center gap-2 border border-white/20 rounded px-4 py-2 mb-6 text-sm font-bold tracking-widest uppercase">
                 <ShieldCheck className="w-4 h-4 text-[#FF8200]" /> Ready for Reliable Tree Service?
               </div>
               <h2 className="text-4xl md:text-5xl font-display font-black text-white mb-6 uppercase leading-tight">
-                AFFORDABLE <span className="text-[#FF8200]">TREE SERVICES</span>
+                FAIR, TRANSPARENT <span className="text-[#FF8200]">PRICING</span>
               </h2>
               <p className="text-white/80 font-medium mb-10 max-w-md text-lg leading-relaxed">
-                Do not wait until a tree becomes a hazard. Call us today for fast, affordable, and professional service.
+                Do not wait until a tree becomes a hazard. Call us today for fast, honest, and professional service.
               </p>
               <Link to="/contact" className="btn-pulse px-8 py-4 rounded font-bold mb-12 shadow-xl text-sm uppercase tracking-wider inline-flex items-center gap-2">
                 Get Your Free Estimate <ArrowUpRight className="w-4 h-4" />
@@ -688,7 +695,7 @@ function HomeContactForm() {
           </div>
 
           {/* Right Form */}
-          <div className="bg-black p-10 md:p-16 lg:py-28 h-full border-l-8 border-[#FF8200]">
+          <div className="bg-black p-10 md:p-16 lg:py-20 h-full border-l-8 border-[#FF8200]">
             <AnimatePresence mode="wait">
               {status === 'success' ? (
                 <motion.div
@@ -740,11 +747,25 @@ function HomeContactForm() {
               ) : (
                 <motion.div key="form" initial={{ opacity: 1 }} exit={{ opacity: 0 }}>
                   <h3 className="text-white font-display font-black text-3xl mb-8 uppercase">Send Us a Message</h3>
+                  
+                  <AnimatePresence>
+                    {status === 'error' && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        className="bg-red-500/10 border border-red-500/50 rounded p-4 mb-6 flex items-start gap-3"
+                      >
+                        <AlertCircle className="w-5 h-5 text-red-500 shrink-0 mt-0.5" />
+                        <p className="text-red-200 text-sm font-medium">{errorMessage}</p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                   <form onSubmit={handleSubmit} className="flex flex-col gap-6 max-w-lg">
                     {[
                       { label: 'Name', key: 'name', type: 'text', req: true },
-                      { label: 'Email', key: 'email', type: 'email', req: true },
-                      { label: 'Phone', key: 'phone', type: 'tel', req: false },
+                      { label: 'Phone or Email', key: 'email', type: 'text', req: true },
+                      { label: 'Phone (Internal)', key: 'phone', type: 'tel', req: false },
                       { label: 'Address', key: 'address', type: 'text', req: false },
                     ].map(({ label, key, type, req }) => (
                       <div key={label}>
@@ -775,18 +796,42 @@ function HomeContactForm() {
                     <motion.button
                       type="submit"
                       disabled={status === 'submitting'}
-                      whileTap={{ scale: 0.97 }}
-                      className="btn-pulse w-full py-5 rounded font-black uppercase tracking-widest text-lg shadow-xl mt-2 flex items-center justify-center gap-2"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="btn-pulse w-full py-5 rounded-lg font-black uppercase tracking-widest text-lg shadow-xl mt-2 flex items-center justify-center gap-3 relative overflow-hidden"
                     >
-                      {status === 'submitting' ? (
-                        <>
-                          <motion.span animate={{ rotate: 360 }} transition={{ repeat: Infinity, duration: 0.7, ease: 'linear' }}>
-                            ⏳
-                          </motion.span>
-                          Sending...
-                        </>
-                      ) : (
-                        <><Send className="w-5 h-5" /> Submit Free Estimate Request</>
+                      <AnimatePresence mode="wait">
+                        {status === 'submitting' ? (
+                          <motion.div
+                            key="loading"
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            className="flex items-center gap-3"
+                          >
+                            <LoadingSpinner />
+                            <span>Sending...</span>
+                          </motion.div>
+                        ) : (
+                          <motion.div
+                            key="idle"
+                            initial={{ opacity: 0, y: 10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            className="flex items-center gap-3"
+                          >
+                            <Send className="w-5 h-5" />
+                            <span>Submit Estimate Request</span>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                      {/* Pulse ring effect during idle */}
+                      {status === 'idle' && (
+                        <motion.div
+                          animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.1, 0.3] }}
+                          transition={{ repeat: Infinity, duration: 2 }}
+                          className="absolute inset-0 bg-white/20 pointer-events-none"
+                        />
                       )}
                     </motion.button>
                   </form>
