@@ -10,7 +10,8 @@ import ServiceDetail from './pages/ServiceDetail';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
-import { ChatWidget } from './components/GlobalWidgets';
+import { CallWidget } from './components/GlobalWidgets';
+import StructuredData from './components/StructuredData';
 
 function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -22,7 +23,7 @@ function Layout({ children }: { children: React.ReactNode }) {
       <Footer />
       <ScrollToTop />
       {/* Global conversion widgets — appear on every page */}
-      <ChatWidget />
+      <CallWidget />
     </div>
   );
 }
@@ -40,6 +41,7 @@ export default function App() {
   return (
     <Router>
       <ScrollToTopOnMount />
+      <StructuredData />
       <Routes>
         <Route path="/" element={<Layout><Home /></Layout>} />
         <Route path="/about" element={<Layout><AboutUs /></Layout>} />

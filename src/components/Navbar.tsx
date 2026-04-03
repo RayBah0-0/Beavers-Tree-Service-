@@ -34,8 +34,16 @@ export default function Navbar() {
         style={{ maxHeight: scrolled ? '0px' : '88px', opacity: scrolled ? 0 : 1 }}
       >
         <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-          <Link to="/" className="flex-shrink-0">
-            <img src="/Logo with text.png" alt="Beavers Tree Service Logo" className="h-16 w-auto object-contain" />
+          <Link to="/" className="flex items-center gap-4 group transition-transform hover:scale-[1.02]">
+            <img src="/Logo.png" alt="Beavers Tree Service & Landscaping Inc. Logo" className="h-20 w-auto object-contain" width="80" height="80" />
+            <div className="flex flex-col">
+              <span className="text-3xl font-logo text-black leading-none uppercase tracking-tight">
+                Beavers <span className="text-[#FF8200]">Tree Service</span>
+              </span>
+              <span className="text-sm font-bold text-black/60 tracking-[0.3em] uppercase mt-1">
+                &amp; Landscaping Inc.
+              </span>
+            </div>
           </Link>
 
           <div className="flex items-center gap-6">
@@ -70,7 +78,7 @@ export default function Navbar() {
             {/* Mobile: Logo + Toggle */}
             <div className="flex items-center justify-between w-full lg:hidden">
               <Link to="/" className="flex-shrink-0 bg-white p-2 rounded my-1">
-                <img src="/Logo with text.png" alt="Beavers Tree Service Logo" className="h-8 w-auto object-contain" />
+                <img src="/Logo.png" alt="Beavers Tree Service & Landscaping Inc. Logo" className="h-8 w-auto object-contain" width="32" height="32" />
               </Link>
               <button className="text-white p-2" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
                 {isOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}

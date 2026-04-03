@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ShieldCheck, ArrowUpRight, CheckCircle2, Phone, TreeDeciduous } from 'lucide-react';
+import { ShieldCheck, ArrowUpRight, CheckCircle2, Phone } from 'lucide-react';
 
 function RevealSection({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number; key?: React.Key }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -33,7 +33,7 @@ function SilhouetteSlide({ side }: { side: 'left' | 'right' }) {
   }, []);
   return (
     <div ref={ref} className={side === 'left' ? 'ag-slide-left' : 'ag-slide-right'}>
-      <TreeDeciduous className="silhouette-icon w-16 h-16 md:w-24 md:h-24" />
+      <img src="/icons/tree.png" alt="" className="silhouette-icon w-16 h-16 md:w-24 md:h-24 object-contain brightness-0" />
     </div>
   );
 }
@@ -68,10 +68,10 @@ export default function AboutUs() {
             {/* Left — stacked images with lift hover */}
             <RevealSection className="relative h-[580px] hidden md:block">
               <div className="absolute top-0 left-0 w-2/3 h-3/4 rounded overflow-hidden shadow-2xl border-4 border-white img-lift">
-                <img src="/showcase (5).jpg" alt="Professional tree care" className="w-full h-full object-cover" />
+                <img src="/showcase (5).jpg" alt="Professional tree care" className="w-full h-full object-cover" width="800" height="600" />
               </div>
               <div className="absolute bottom-0 right-0 w-2/3 h-3/4 rounded overflow-hidden shadow-2xl border-4 border-white z-10 img-lift">
-                <img src="/showcase.jpg" alt="Lawn care and landscaping" className="w-full h-full object-cover" />
+                <img src="/showcase.jpg" alt="Lawn care and landscaping" className="w-full h-full object-cover" width="800" height="600" />
               </div>
             </RevealSection>
 
@@ -92,7 +92,7 @@ export default function AboutUs() {
               </h2>
 
               <p className="text-black/80 mb-6 font-medium text-[17px] leading-relaxed">
-                Beavers Tree Service and Landscaping Inc. is a local, family owned company based in North Carolina, proudly serving Raleigh, Cary, Apex, Clayton, Durham, Garner, Chapel Hill, and surrounding areas. With over 25 years of experience, we specialize in a wide range of residential tree and landscaping services including tree removal, trimming, cutting, storm cleanup, ornamental pruning, junk removal, and more.
+                Beavers Tree Service &amp; Landscaping Inc. is a local, family owned company based in North Carolina, proudly serving Raleigh, Cary, Apex, Clayton, Durham, Garner, Chapel Hill, and surrounding areas. With over 25 years of experience, we specialize in a wide range of residential tree and landscaping services including tree removal, trimming, cutting, storm cleanup, ornamental pruning, junk removal, and more.
               </p>
 
               <p className="text-black/80 mb-6 font-medium text-[17px] leading-relaxed">
@@ -118,7 +118,7 @@ export default function AboutUs() {
             <RevealSection>
               {/* Anchored bold orange guarantee badge — top of section */}
               <div className="bg-[#FF8200] px-6 py-4 rounded mb-8 inline-flex items-center gap-4 shadow-lg">
-                <ShieldCheck className="w-8 h-8 text-black" />
+                <img src="/icons/gardener.png" alt="" className="w-10 h-10 object-contain brightness-0" width="40" height="40" />
                 <span className="font-display font-black text-black text-xl uppercase tracking-wide">Our Guarantee</span>
               </div>
 
@@ -128,13 +128,13 @@ export default function AboutUs() {
 
               <div className="space-y-6 text-white/80 font-medium text-[17px] leading-relaxed mb-10">
                 <p>
-                  At Beavers Tree Service and Landscaping Inc., we take pride in being a licensed and insured, family owned business with over 25 years of experience in the tree industry. We proudly serve the Triangle area of North Carolina, including Raleigh, Cary, Apex, Clayton, Durham, Garner, Chapel Hill, and nearby cities.
+                  At Beavers Tree Service &amp; Landscaping Inc., we take pride in being a licensed and insured, family owned business with over 25 years of experience in the tree industry. We proudly serve the Triangle area of North Carolina, including Raleigh, Cary, Apex, Clayton, Durham, Garner, Chapel Hill, and nearby cities.
                 </p>
                 <p>
                   Our promise is simple: to deliver safe, fair, and high quality service with honesty and professionalism. Whether it is trimming, cutting, or full tree removal, we approach every job with care, precision, and a focus on customer satisfaction. We offer expert advice on whether a tree can be saved or should be removed — and when removal is necessary, we use the proper equipment and safety practices to handle the job efficiently.
                 </p>
                 <p>
-                  We understand that every homeowner's needs are different, and we are here to help you protect your property while enhancing your landscape. We are also a bilingual team (English &amp; Spanish), ensuring clear communication and reliable service for a wider community. When you choose Beavers Tree Service and Landscaping Inc., you are choosing local professionals who treat your property like our own.
+                  We understand that every homeowner's needs are different, and we are here to help you protect your property while enhancing your landscape. We are also a bilingual team (English &amp; Spanish), ensuring clear communication and reliable service for a wider community. When you choose Beavers Tree Service &amp; Landscaping Inc., you are choosing local professionals who treat your property like our own.
                 </p>
               </div>
 
@@ -157,7 +157,7 @@ export default function AboutUs() {
             </RevealSection>
 
             <RevealSection delay={200} className="rounded overflow-hidden shadow-2xl h-[500px] lg:h-[700px] border-4 border-white/10 img-lift">
-              <img src="/showcase (3).jpg" alt="Quality Tree Care — professional results" className="w-full h-full object-cover" />
+              <img src="/showcase (3).jpg" alt="Quality Tree Care — professional results" className="w-full h-full object-cover" width="600" height="800" loading="lazy" />
             </RevealSection>
           </div>
         </div>

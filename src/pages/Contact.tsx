@@ -208,7 +208,7 @@ export default function Contact() {
       </section>
 
       {/* 2. FORM & INFO — Breathable vertical stacked layout */}
-      <section className="py-20 bg-white">
+      <section className="py-14 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
@@ -325,7 +325,7 @@ export default function Contact() {
 
                     {/* Name */}
                     <div>
-                      <label className="block text-white font-bold text-sm mb-2 uppercase tracking-wide">
+                      <label htmlFor="contact-name" className="block text-white font-bold text-sm mb-2 uppercase tracking-wide">
                         Name <span className="text-[#FF8200]">*</span>
                       </label>
                       <input
@@ -341,7 +341,7 @@ export default function Contact() {
 
                     {/* Phone or Email */}
                     <div>
-                      <label className="block text-white font-bold text-sm mb-2 uppercase tracking-wide">
+                      <label htmlFor="contact-email" className="block text-white font-bold text-sm mb-2 uppercase tracking-wide">
                         Phone or Email <span className="text-[#FF8200]">*</span>
                       </label>
                       <input
@@ -357,7 +357,7 @@ export default function Contact() {
 
                     {/* Service Needed */}
                     <div>
-                      <label className="block text-white font-bold text-sm mb-2 uppercase tracking-wide">
+                      <label htmlFor="contact-service" className="block text-white font-bold text-sm mb-2 uppercase tracking-wide">
                         Service Needed <span className="text-[#FF8200]">*</span>
                       </label>
                       <input
@@ -373,7 +373,7 @@ export default function Contact() {
 
                     {/* Message */}
                     <div>
-                      <label className="block text-white font-bold text-sm mb-2 uppercase tracking-wide">
+                      <label htmlFor="contact-message" className="block text-white font-bold text-sm mb-2 uppercase tracking-wide">
                         Message <span className="text-[#FF8200]">*</span>
                       </label>
                       <textarea

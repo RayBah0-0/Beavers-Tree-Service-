@@ -106,8 +106,10 @@ export default function Gallery() {
                 <img
                   src={`/${photo.file}`}
                   className="w-full h-full object-cover"
-                  alt={`Beavers Tree Service — ${photo.caption}`}
+                  alt={`Beavers Tree Service & Landscaping Inc. — ${photo.caption}`}
                   loading="lazy"
+                  width="400"
+                  height="500"
                 />
                 {/* Hover overlay */}
                 <div className="absolute inset-0 bg-black/55 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center pointer-events-none">
@@ -122,29 +124,90 @@ export default function Gallery() {
         </div>
       </section>
 
-      {/* LIGHTBOX */}
+      {/* 3. VIDEO GALLERY — Our Action section */}
+      <section className="py-20 bg-black border-t-8 border-[#FF8200]">
+        <div className="max-w-7xl mx-auto px-6 text-center">
+          <RevealSection>
+            <h2 className="text-4xl md:text-5xl font-display font-black text-white mb-4 leading-tight uppercase">
+              OUR WORK <span className="text-[#FF8200]">IN ACTION</span>
+            </h2>
+            <p className="text-lg text-white/50 max-w-2xl mx-auto mb-16 font-medium leading-relaxed">
+              Watch our crews handle complex removals, precision pruning, and landscaping projects across North Carolina.
+            </p>
+          </RevealSection>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {Array.from({ length: 14 }).map((_, i) => {
+              const videoNum = i + 1;
+              const thumbNum = (i % 3) + 6; // Rotates between showcase (6, 7, 8).jpg
+              return (
+                <RevealSection key={i} delay={i * 50}>
+                  <div 
+                    onClick={() => {
+                      setLightboxImage(`/Video${videoNum}.MOV`);
+                      setLightboxCaption(`Project Video ${videoNum}`);
+                    }}
+                    className="gallery-item group relative aspect-video bg-neutral-900 overflow-hidden rounded cursor-pointer border-2 border-white/5 hover:border-[#FF8200] transition-all"
+                  >
+                    <img 
+                      src={`/showcase (${thumbNum}).jpg`}
+                      className="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity" 
+                      alt={`Beavers Tree Service & Landscaping Inc. Video ${videoNum}`}
+                      width="400"
+                      height="225"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 flex flex-col items-center justify-center">
+                      <div className="w-16 h-16 bg-[#FF8200] rounded-full flex items-center justify-center border-4 border-white shadow-2xl group-hover:scale-110 transition-transform">
+                        <ZoomIn className="w-8 h-8 text-white" />
+                      </div>
+                      <span className="mt-4 text-white font-black uppercase tracking-widest text-xs">Play Project {videoNum}</span>
+                    </div>
+                  </div>
+                </RevealSection>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* LIGHTBOX (Handles both Video and Images) */}
       <AnimatePresence>
         {lightboxImage && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/96 p-4 md:p-12 cursor-zoom-out backdrop-blur-sm"
+            className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/98 p-4 md:p-12 cursor-zoom-out backdrop-blur-md"
             onClick={() => setLightboxImage(null)}
           >
-            <motion.img
-              initial={{ scale: 0.9, y: 20 }}
-              animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.9, y: 20 }}
-              src={lightboxImage}
-              alt={`Enlarged — ${lightboxCaption}`}
-              className="max-h-[80vh] max-w-full object-contain shadow-2xl rounded"
-            />
+            {lightboxImage.endsWith('.MOV') ? (
+              <motion.video
+                initial={{ scale: 0.9, y: 20 }}
+                animate={{ scale: 1, y: 0 }}
+                exit={{ scale: 0.9, y: 20 }}
+                src={lightboxImage}
+                controls
+                autoPlay
+                className="max-h-[80vh] max-w-full rounded shadow-2xl border-2 border-[#FF8200]"
+                onClick={(e) => e.stopPropagation()}
+              />
+            ) : (
+              <motion.img
+                initial={{ scale: 0.9, y: 20 }}
+                animate={{ scale: 1, y: 0 }}
+                exit={{ scale: 0.9, y: 20 }}
+                src={lightboxImage}
+                alt={`Enlarged — ${lightboxCaption}`}
+                className="max-h-[80vh] max-w-full object-contain shadow-2xl rounded"
+              />
+            )}
+            
             {lightboxCaption && (
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="mt-4 px-6 py-2 bg-[#FF8200] rounded text-black font-black uppercase tracking-widest text-sm"
+                className="mt-6 px-8 py-3 bg-[#FF8200] rounded text-black font-black uppercase tracking-widest text-sm shadow-xl"
                 onClick={(e) => e.stopPropagation()}
               >
                 {lightboxCaption}

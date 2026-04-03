@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { Phone, ArrowUpRight, CheckCircle2, ShieldCheck, Mail, Play, ChevronDown, Star, TreeDeciduous, X, Send, Sprout, AlertCircle } from 'lucide-react';
+import { Phone, ArrowUpRight, CheckCircle2, ShieldCheck, Mail, Play, ChevronDown, Star, TreeDeciduous, X, Send, Sprout, AlertCircle, Leaf, Trees } from 'lucide-react';
 import { cn } from '../lib/utils';
 
 // Confetti particle for success animation
@@ -13,7 +13,7 @@ function SuccessConfetti() {
         const angle = (i / particles.length) * 360;
         const dist = 80 + Math.random() * 80;
         const size = 6 + Math.random() * 10;
-        const colors = ['#FF8200','#000000','#ffffff','#FF8200','#FF6B00'];
+        const colors = ['#FF8200', '#000000', '#ffffff', '#FF8200', '#FF6B00'];
         const color = colors[i % colors.length];
         return (
           <motion.div
@@ -87,7 +87,7 @@ function AnimatedStat({ value, suffix = '', label, dark = false }: { value: numb
 const REVIEWS = [
   { name: 'Varun Ganotra', text: 'Really amazing job by the team sent to take out our trees. They were great at what they did, really hardworking folks. Would highly recommend!', date: '1 year ago' },
   { name: 'Paul Alger', text: "Couldn't be happier with the service provided showed up on time, left the area nice and clean when they were done. Great crew, great price!", date: '1 year ago' },
-  { name: 'Adam Curtin', text: "Beavers Tree Service is fairly priced, professional, accommodating, and clean! I know that clean is an odd thing to note but they really left the yard spotless.", date: '1 year ago' },
+  { name: 'Adam Curtin', text: "Beavers Tree Service & Landscaping Inc. is fairly priced, professional, accommodating, and clean! I know that clean is an odd thing to note but they really left the yard spotless.", date: '1 year ago' },
   { name: 'Maria Lopez', text: 'Called them for an emergency after a storm knocked a huge tree onto my fence. They were there within 2 hours. Absolutely incredible response time!', date: '8 months ago' },
   { name: 'James Turner', text: 'Used them for stump grinding and sod installation. Both crews were professional and the yard looks absolutely beautiful. Very satisfied!', date: '6 months ago' },
   { name: 'Sandra Hill', text: 'Family owned business that treats you like family. Honest pricing, no surprises, and amazing results. These guys are the real deal in the Triangle.', date: '5 months ago' },
@@ -158,8 +158,9 @@ export default function Home() {
       {/* 1. HERO SECTION */}
       <section className="relative min-h-[90vh] flex items-center justify-center pt-24 overflow-hidden">
         <div className="absolute inset-0 bg-black z-0">
-          <video autoPlay loop muted playsInline className="w-full h-full object-cover opacity-40 pointer-events-none">
-            <source src="/hero_video.mp4" type="video/mp4" />
+          <video autoPlay loop muted playsInline poster="/showcase (5).jpg" className="w-full h-full object-cover opacity-40 pointer-events-none">
+            <source src="/Hero Video.mp4" type="video/mp4" />
+            <source src="/Hero Video.MOV" type="video/quicktime" />
           </video>
         </div>
         <div className="relative z-10 max-w-5xl mx-auto px-6 flex flex-col items-center text-center mt-12">
@@ -169,7 +170,7 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="inline-flex items-center gap-2 border border-white/30 rounded-full px-5 py-2 mb-8 bg-black/40 backdrop-blur-sm text-white text-sm font-bold tracking-widest uppercase"
           >
-            <TreeDeciduous className="w-4 h-4 text-[#FF8200]" />
+            <img src="/icons/tree.png" alt="" className="w-5 h-5 object-contain" width="20" height="20" />
             Welcome to Beavers Tree Service &amp; Landscaping Inc.
           </motion.div>
 
@@ -209,25 +210,25 @@ export default function Home() {
       </section>
 
       {/* 2. ABOUT US / FAMILY OWNED */}
-      <section className="py-20 bg-white">
+      <section className="py-14 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left — stacked images */}
             <RevealSection className="relative h-[580px] hidden md:block">
               <div className="absolute top-0 left-0 w-2/3 h-3/4 rounded overflow-hidden shadow-2xl border-4 border-white img-lift">
-                <img src="/showcase (5).jpg" alt="Professional tree care" className="w-full h-full object-cover" />
+                <img src="/showcase (5).jpg" alt="Professional tree care" className="w-full h-full object-cover" width="800" height="600" />
               </div>
               <div className="absolute bottom-0 right-0 w-2/3 h-3/4 rounded overflow-hidden shadow-2xl border-4 border-white z-10 img-lift">
-                <img src="/showcase.jpg" alt="Lawn care and landscaping" className="w-full h-full object-cover" />
+                <img src="/showcase.jpg" alt="Lawn care and landscaping" className="w-full h-full object-cover" width="800" height="600" />
               </div>
             </RevealSection>
 
             {/* Right — text */}
             <RevealSection delay={150}>
               {/* 25+ Years badge with spacing from who we are pill */}
-              <div className="years-badge mb-6">
+              <div className="years-badge mb-10 mx-auto lg:mx-0 font-sans">
                 <span className="years-number">25+</span>
-                <span className="years-label">Years Experience</span>
+                <span className="years-label font-bold">Years Experience</span>
               </div>
 
               <div className="h-4" />{/* spacer between badge and pill */}
@@ -242,7 +243,7 @@ export default function Home() {
               </h2>
 
               <p className="text-black mb-6 font-medium text-lg leading-relaxed">
-                Welcome to Beavers Tree Service and Landscaping Inc., where we are more than just a tree company — we are your neighbors! With over 25 years of combined experience, our fully licensed and insured team provides safe, professional, and high quality care throughout the Triangle and beyond. We take great pride in offering bilingual service (English &amp; Spanish) to ensure every homeowner feels heard and supported.
+                Welcome to Beavers Tree Service &amp; Landscaping Inc., where we are more than just a tree company — we are your neighbors! With over 25 years of combined experience, our fully licensed and insured team provides safe, professional, and high quality care throughout the Triangle and beyond. We take great pride in offering bilingual service (English &amp; Spanish) to ensure every homeowner feels heard and supported.
               </p>
               <p className="text-black mb-10 font-medium text-lg leading-relaxed">
                 Whether you need a simple trim or a complex crane assisted removal, we bring honesty, professionalism, and care to every project. We are excited to help you protect and beautify your property. Call or text us today for your free estimate!
@@ -268,7 +269,7 @@ export default function Home() {
       </section>
 
       {/* 3. WHY CHOOSE US */}
-      <section className="bg-black py-20 text-white">
+      <section className="bg-black py-16 text-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <RevealSection>
@@ -282,25 +283,32 @@ export default function Home() {
                 {[
                   {
                     title: 'Comprehensive Tree &amp; Landscape Care',
+                    icon: '/icons/gardener.png',
                     body: 'From trimming and cutting to full tree removal, we handle all aspects of tree and yard maintenance with precision and care.'
                   },
                   {
                     title: 'Emergency 24/7 Response',
+                    icon: 'check',
                     body: 'When storms strike, we are ready. Our team responds around the clock to protect your home and family from dangerous trees.'
                   },
                   {
                     title: 'Eco Conscious Approach',
+                    icon: '/icons/earth.png',
                     body: 'We prioritize saving trees whenever possible, providing environmentally responsible care that keeps your landscape safe and beautiful.'
                   }
                 ].map((item, i) => (
                   <RevealSection key={i} delay={i * 100}>
                     <div className="flex gap-4">
-                      <div className="w-10 h-10 bg-[#FF8200] rounded flex items-center justify-center shrink-0 mt-1">
-                        <CheckCircle2 className="w-5 h-5 text-white" />
+                      <div className="w-12 h-12 bg-[#FF8200] rounded-xl flex items-center justify-center shrink-0 mt-1 shadow-lg border-2 border-white/20">
+                        {item.icon === 'check' ? (
+                          <CheckCircle2 className="w-6 h-6 text-black" />
+                        ) : (
+                          <img src={item.icon} alt="" className="w-8 h-8 object-contain" width="32" height="32" />
+                        )}
                       </div>
                       <div>
                         <h3 className="text-white text-xl font-bold mb-2" dangerouslySetInnerHTML={{ __html: item.title }} />
-                        <p className="text-white/70">{item.body}</p>
+                        <p className="text-white/70 leading-relaxed">{item.body}</p>
                       </div>
                     </div>
                   </RevealSection>
@@ -309,24 +317,24 @@ export default function Home() {
             </RevealSection>
 
             <RevealSection delay={200} className="rounded overflow-hidden shadow-2xl h-[400px] lg:h-[600px] img-lift">
-              <img src="/showcase (3).jpg" alt="Tree cutting professionals" className="w-full h-full object-cover" />
+              <img src="/showcase (3).jpg" alt="Tree cutting professionals" className="w-full h-full object-cover" width="800" height="600" />
             </RevealSection>
           </div>
         </div>
       </section>
 
       {/* 4. SERVICES — Breathable vertical cards */}
-      <section className="bg-white py-20">
+      <section className="bg-white py-14">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <RevealSection>
-            <div className="inline-flex items-center justify-center gap-2 border border-black/20 rounded px-4 py-2 mb-6 text-sm font-bold text-black uppercase tracking-widest bg-white/50">
+            <div className="inline-flex items-center justify-center gap-3 border border-black/20 rounded px-5 py-2.5 mb-6 text-lg font-black text-black uppercase tracking-[0.2em] bg-white/50">
               <ShieldCheck className="w-4 h-4" /> Our Services
             </div>
             <h2 className="text-4xl md:text-5xl font-display font-black text-black mb-4 uppercase leading-tight">
               COMPLETE TREE &amp; <br />
               <span className="text-[#FF8200]">LANDSCAPING SOLUTIONS</span>
             </h2>
-            <p className="text-black/60 font-medium text-lg max-w-2xl mx-auto mb-16">
+            <p className="text-black/60 font-medium text-xl max-w-2xl mx-auto mb-16">
               From routine lawn care to complex crane assisted tree removal, we deliver expert results with every project.
             </p>
           </RevealSection>
@@ -334,13 +342,13 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-16">
             {[
               {
-                icon: <TreeDeciduous className="w-16 h-16" />,
+                icon: <img src="/icons/tree.png" alt="" className="w-16 h-16 object-contain brightness-0 invert" />,
                 title: 'Tree Services',
                 desc: 'Professional tree trimming, pruning, removal, and stump grinding services to keep your property safe and beautiful year round.',
                 path: '/services'
               },
               {
-                icon: <Sprout className="w-16 h-16" />,
+                icon: <img src="/icons/grass.png" alt="" className="w-16 h-16 object-contain brightness-0 invert" />,
                 title: 'Landscaping Services',
                 desc: 'From sod installation to retaining walls and expert lawn care, we build and maintain beautiful outdoor spaces.',
                 path: '/services'
@@ -368,7 +376,7 @@ export default function Home() {
       </section>
 
       {/* 5. LATEST PROJECTS */}
-      <section className="py-20 bg-white border-t border-black/5 text-center">
+      <section className="py-14 bg-white border-t border-black/5 text-center">
         <div className="max-w-screen-2xl mx-auto px-6">
           <RevealSection>
             <h2 className="text-4xl md:text-5xl font-display font-black text-black mb-4 uppercase leading-tight">
@@ -383,7 +391,7 @@ export default function Home() {
           <div className="gallery-grid grid-cols-2 md:grid-cols-4 mb-14">
             {['showcase.jpg', 'showcase (5).jpg', 'showcase (3).jpg', 'showcase (6).jpg'].map((img, i) => (
               <RevealSection key={i} delay={i * 80} className="gallery-item aspect-[4/5] w-full overflow-hidden shadow-md rounded">
-                <img src={`/${img}`} alt={`Beavers Tree Service project ${i + 1}`} className="w-full h-full object-cover" loading="lazy" />
+                <img src={`/${img}`} alt={`Beavers Tree Service & Landscaping Inc. project ${i + 1}`} className="w-full h-full object-cover" loading="lazy" width="400" height="500" />
               </RevealSection>
             ))}
           </div>
@@ -398,7 +406,7 @@ export default function Home() {
       <VideoSection />
 
       {/* 7. FAQ */}
-      <section className="bg-black text-white py-20">
+      <section className="bg-black text-white py-14">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <RevealSection>
             <div className="inline-flex items-center justify-center gap-2 border border-white/20 rounded px-4 py-2 mb-6 text-sm font-bold uppercase tracking-widest text-white mx-auto">
@@ -443,7 +451,7 @@ export default function Home() {
       </section>
 
       {/* 8. TESTIMONIALS MARQUEE */}
-      <section className="py-20 bg-black text-center overflow-hidden">
+      <section className="py-14 bg-black text-center overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 mb-12">
           <RevealSection>
             <div className="inline-flex items-center gap-2 border border-white/20 rounded px-4 py-2 mb-6 text-sm font-bold uppercase tracking-widest text-white">
@@ -476,7 +484,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="flex gap-1 mb-3">
-                  {[1,2,3,4,5].map(s => <Star key={s} className="w-4 h-4 text-yellow-400 fill-yellow-400" />)}
+                  {[1, 2, 3, 4, 5].map(s => <Star key={s} className="w-4 h-4 text-yellow-400 fill-yellow-400" />)}
                 </div>
                 <p className="text-white/70 text-sm font-medium leading-relaxed">"{review.text}"</p>
               </div>
@@ -506,9 +514,14 @@ export default function Home() {
 
 /* ─── VIDEO SECTION ───────────────────────────────── */
 const VIDEO_DATA = [
-  { src: '/showcasevid1.mp4', thumb: '/showcase (3).jpg', label: 'Tree Removal in Action' },
-  { src: '/showcasevid2.mp4', thumb: '/showcase (4).jpg', label: 'Crane Service — Precision Cut' },
-  { src: '/showcasevid1.mp4', thumb: '/showcase (5).jpg', label: 'Storm Cleanup Crew' },
+  { src: '/Video1.MOV', thumb: '/showcase (6).jpg', label: 'Precision Tree Removal' },
+  { src: '/Video2.MOV', thumb: '/showcase (7).jpg', label: 'Safety First Operations' },
+  { src: '/Video3.MOV', thumb: '/showcase (8).jpg', label: 'Expert Stump Grinding' },
+  { src: '/Video4.MOV', thumb: '/showcase (6).jpg', label: 'Lawn Restoration' },
+  { src: '/Video5.MOV', thumb: '/showcase (7).jpg', label: 'Triangle Area Maintenance' },
+  { src: '/Video6.MOV', thumb: '/showcase (8).jpg', label: 'Emergency Response Team' },
+  { src: '/Video13.MOV', thumb: '/showcase (6).jpg', label: 'Site Restoration' },
+  { src: '/Video14.MOV', thumb: '/showcase (7).jpg', label: 'Tree Care Specialists' },
 ];
 
 function VideoSection() {
@@ -519,12 +532,12 @@ function VideoSection() {
   useEffect(() => {
     if (activeVideo && videoRef.current) {
       videoRef.current.load();
-      videoRef.current.play().catch(() => {});
+      videoRef.current.play().catch(() => { });
     }
   }, [activeVideo]);
 
   return (
-    <section className="py-20 bg-white text-center border-t border-black/5">
+    <section className="py-14 bg-white text-center border-t border-black/5">
       <div className="max-w-7xl mx-auto px-6">
         <div className="inline-flex items-center gap-2 border border-black/20 rounded px-4 py-2 mb-6 text-sm font-bold uppercase tracking-widest text-black bg-white">
           <Play className="w-4 h-4 text-[#FF8200]" fill="currentColor" /> Our Work In Action
@@ -547,10 +560,13 @@ function VideoSection() {
               onClick={() => { setActiveVideo(vid.src); setActiveLabel(vid.label); }}
               className="aspect-video w-full bg-black relative overflow-hidden group cursor-pointer rounded-lg shadow-xl border-2 border-[#FF8200]/20 hover:border-[#FF8200] transition-all"
             >
-              <img
+                <img
                 src={vid.thumb}
                 alt={vid.label}
                 className="w-full h-full object-cover opacity-75 group-hover:opacity-90 group-hover:scale-105 transition-all duration-500"
+                width="400"
+                height="225"
+                loading="lazy"
               />
               {/* Gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
@@ -689,7 +705,7 @@ function HomeContactForm() {
                 Get Your Free Estimate <ArrowUpRight className="w-4 h-4" />
               </Link>
               <div className="rounded overflow-hidden shadow-2xl border-4 border-white/10 aspect-video mt-6">
-                <img src="/showcase (6).jpg" alt="Service Trucks Ready" className="w-full h-full object-cover" />
+                <img src="/showcase (6).jpg" alt="Service Trucks Ready" className="w-full h-full object-cover" width="600" height="400" loading="lazy" />
               </div>
             </div>
           </div>
@@ -729,7 +745,7 @@ function HomeContactForm() {
                     transition={{ delay: 0.45 }}
                     className="text-white/70 text-lg font-medium mb-10 max-w-sm"
                   >
-                    We will reach out shortly with your free estimate. Thank you for choosing Beavers Tree Service!
+                    We will reach out shortly with your free estimate. Thank you for choosing Beavers Tree Service & Landscaping Inc.!
                   </motion.p>
                   <motion.div
                     initial={{ opacity: 0 }}
@@ -747,7 +763,7 @@ function HomeContactForm() {
               ) : (
                 <motion.div key="form" initial={{ opacity: 1 }} exit={{ opacity: 0 }}>
                   <h3 className="text-white font-display font-black text-3xl mb-8 uppercase">Send Us a Message</h3>
-                  
+
                   <AnimatePresence>
                     {status === 'error' && (
                       <motion.div
@@ -769,10 +785,11 @@ function HomeContactForm() {
                       { label: 'Address', key: 'address', type: 'text', req: false },
                     ].map(({ label, key, type, req }) => (
                       <div key={label}>
-                        <label className="block text-white font-bold text-sm mb-2 uppercase tracking-wide">
+                        <label htmlFor={`field-${key}`} className="block text-white font-bold text-sm mb-2 uppercase tracking-wide">
                           {label} {req && <span className="text-[#FF8200]">*</span>}
                         </label>
                         <input
+                          id={`field-${key}`}
                           type={type}
                           className="form-field"
                           required={req}
@@ -782,10 +799,11 @@ function HomeContactForm() {
                       </div>
                     ))}
                     <div>
-                      <label className="block text-white font-bold text-sm mb-2 uppercase tracking-wide">
+                      <label htmlFor="field-description" className="block text-white font-bold text-sm mb-2 uppercase tracking-wide">
                         Description of The Work <span className="text-[#FF8200]">*</span>
                       </label>
                       <textarea
+                        id="field-description"
                         rows={4}
                         className="form-field resize-none"
                         required

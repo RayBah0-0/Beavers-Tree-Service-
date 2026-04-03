@@ -10,12 +10,22 @@ export default function Footer() {
 
           {/* Brand Column */}
           <div className="lg:col-span-2">
-            <Link to="/" className="inline-block mb-8 bg-white p-4 rounded-lg shadow-xl hover:border-[#FF8200]/50 transition-all">
+            <Link to="/" className="inline-flex items-center gap-4 mb-8 bg-white p-4 rounded-lg shadow-xl group hover:scale-[1.02] transition-transform">
               <img
-                src="/Logo with text.png"
-                alt="Beavers Tree Service Logo"
-                className="h-16 w-auto object-contain"
+                src="/Logo.png"
+                alt="Beavers Tree Service & Landscaping Inc. Logo"
+                className="h-14 w-auto object-contain"
+                width="56"
+                height="56"
               />
+              <div className="flex flex-col">
+                <span className="text-xl font-logo text-black leading-none uppercase tracking-tight">
+                  Beavers <span className="text-[#FF8200]">Tree</span>
+                </span>
+                <span className="text-[10px] font-bold text-black/60 tracking-[0.2em] uppercase mt-0.5">
+                  &amp; Landscaping Inc.
+                </span>
+              </div>
             </Link>
             <p className="text-white/70 font-sans max-w-sm leading-relaxed mb-6 text-base">
               Professional tree removal, trimming, and emergency storm services. We respond quickly and handle every job safely from start to finish.
@@ -44,7 +54,7 @@ export default function Footer() {
                 <a href="tel:919-358-2168" className="contact-link flex items-center gap-3 group">
                   <Phone className="w-6 h-6 contact-icon text-[#FF8200] shrink-0" />
                   <div className="flex flex-col">
-                    <span className="text-white/50 text-xs font-bold uppercase tracking-widest mb-0.5">Call or Text</span>
+                    <span className="text-white/80 text-xs font-bold uppercase tracking-widest mb-0.5">Call or Text</span>
                     <span className="text-[#FF8200] text-xl font-black group-hover:font-black">(919) 358-2168</span>
                   </div>
                 </a>
@@ -53,7 +63,7 @@ export default function Footer() {
                 <a href="mailto:beaverstreeservicenc@gmail.com" className="contact-link flex items-center gap-3 group">
                   <Mail className="w-6 h-6 contact-icon text-[#FF8200] shrink-0" />
                   <div className="flex flex-col">
-                    <span className="text-white/50 text-xs font-bold uppercase tracking-widest mb-0.5">Email</span>
+                    <span className="text-white/80 text-xs font-bold uppercase tracking-widest mb-0.5">Email</span>
                     <span className="text-[#FF8200] font-bold text-sm break-all">beaverstreeservicenc@gmail.com</span>
                   </div>
                 </a>
@@ -61,7 +71,7 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="w-6 h-6 text-[#FF8200] shrink-0 mt-1" />
                 <div className="flex flex-col">
-                  <span className="text-white/50 text-xs font-bold uppercase tracking-widest mb-0.5">Service Areas</span>
+                  <span className="text-white/80 text-xs font-bold uppercase tracking-widest mb-0.5">Service Areas</span>
                   <span className="text-[#FF8200] font-bold leading-relaxed">Raleigh, Cary, Apex, Durham, Clayton, Chapel Hill &amp; More</span>
                 </div>
               </li>
@@ -93,10 +103,10 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-white/40 text-sm font-sans">
+          <p className="text-white/60 text-sm font-sans">
             © {new Date().getFullYear()} Beavers Tree Service &amp; Landscaping Inc. All rights reserved.
           </p>
-          <p className="text-white/30 text-xs font-sans">
+          <p className="text-white/50 text-xs font-sans">
             Serving Raleigh, NC &amp; The Triangle Area
           </p>
         </div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowUpRight, CheckCircle2, Phone, TreeDeciduous, ChevronLeft, ChevronRight, Play } from 'lucide-react';
+import { ArrowUpRight, CheckCircle2, Phone, Trees, ChevronLeft, ChevronRight, Play } from 'lucide-react';
 import { motion } from 'motion/react';
 
 /* ── PER-SERVICE COLOR THEMES ─────────────────────────────
@@ -218,7 +218,7 @@ const SERVICES_DATA: Record<string, {
     title: 'Tree Removal', category: 'Tree Services',
     subHeadline: 'Safe and Professional Tree Removal',
     description: [
-      'At Beavers Tree Service and Landscaping Inc., we specialize in safe and efficient tree removal for residential and commercial properties. With over 25 years of combined experience, our licensed and insured team handles everything from routine removals to complex crane assisted projects.',
+      'At Beavers Tree Service &amp; Landscaping Inc., we specialize in safe and efficient tree removal for residential and commercial properties. With over 25 years of combined experience, our licensed and insured team handles everything from routine removals to complex crane assisted projects.',
       'We prioritize the safety of your home and landscape while providing reliable and professional service. Whether a tree is dead, diseased, or posing a threat to your property, we are here to help. Call or text us today for your free estimate!'
     ],
     treeServices: ['Licensed & Insured Crew', 'Free Estimates', 'Full Site Cleanup', 'Crane Assisted Removals Available'],
@@ -228,7 +228,7 @@ const SERVICES_DATA: Record<string, {
     title: 'Emergency Services', category: 'Tree Services',
     subHeadline: '24/7 Rapid Response for Storm Damage',
     description: [
-      'Storms can strike at any time, leaving dangerous debris and fallen trees in their wake. At Beavers Tree Service and Landscaping Inc., we offer 24/7 emergency response to protect your home and family when you need it most.',
+      'Storms can strike at any time, leaving dangerous debris and fallen trees in their wake. At Beavers Tree Service &amp; Landscaping Inc., we offer 24/7 emergency response to protect your home and family when you need it most.',
       'Our licensed and insured crew works quickly and safely to clear hazards and prevent further damage to your property. We are committed to providing reliable support during stressful times with clear communication in English and Spanish. If you have a tree emergency, call our team for immediate assistance!'
     ],
     treeServices: ['24/7 Availability', 'Fast Response Times', 'Storm Debris Removal', 'Hazard Tree Clearing'],
@@ -278,7 +278,7 @@ const SERVICES_DATA: Record<string, {
     title: 'Sod Installation', category: 'Landscaping Services',
     subHeadline: 'Instant Green Lawns & Expert Sod Installation',
     description: [
-      'At Beavers Tree Service and Landscaping Inc., we provide professional sod installation for residential and commercial properties throughout the Triangle area. Whether you are starting with bare soil or replacing patchy grass, our licensed and insured team delivers flawless results.',
+      'At Beavers Tree Service &amp; Landscaping Inc., we provide professional sod installation for residential and commercial properties throughout the Triangle area. Whether you are starting with bare soil or replacing patchy grass, our licensed and insured team delivers flawless results.',
       'We carefully prepare the soil and install premium quality sod to ensure a healthy, vibrant lawn that instantly enhances your curb appeal. We offer bilingual service in English and Spanish along with competitive pricing. Call or text us for your free estimate!'
     ],
     treeServices: ['Soil Preparation', 'Premium Quality Sod', 'Residential & Commercial', 'Same Day Results'],
@@ -288,7 +288,7 @@ const SERVICES_DATA: Record<string, {
     title: 'Paver Installation', category: 'Landscaping Services',
     subHeadline: 'Custom Paver Patios & Durable Outdoor Surfaces',
     description: [
-      'At Beavers Tree Service and Landscaping Inc., we specialize in professional paver installation for residential and commercial properties. Our skilled team designs and installs custom patios, driveways, and walkways that combine beauty with lasting quality.',
+      'At Beavers Tree Service &amp; Landscaping Inc., we specialize in professional paver installation for residential and commercial properties. Our skilled team designs and installs custom patios, driveways, and walkways that combine beauty with lasting quality.',
       'Whether you want a cozy backyard retreat or a low maintenance surface for your business, we use top quality materials to ensure your project stands the test of time. Every project begins with a free estimate and ends with your complete satisfaction. Call or text us today to start your project!'
     ],
     treeServices: ['Custom Designs', 'Patios & Walkways', 'Low Maintenance', 'Commercial Grade Materials'],
@@ -298,7 +298,7 @@ const SERVICES_DATA: Record<string, {
     title: 'Retaining Wall Installation', category: 'Landscaping Services',
     subHeadline: 'Expert Retaining Walls & Soil Stability',
     description: [
-      'At Beavers Tree Service and Landscaping Inc., we provide expert retaining wall installation for residential and commercial properties. Our walls are built to combine strength and visual appeal, protecting your land from erosion while enhancing your landscape.',
+      'At Beavers Tree Service &amp; Landscaping Inc., we provide expert retaining wall installation for residential and commercial properties. Our walls are built to combine strength and visual appeal, protecting your land from erosion while enhancing your landscape.',
       'Whether you need a small garden wall or a large structural wall for a business, our licensed and insured team uses durable materials and precise engineering for lasting stability. We focus on proper drainage and seamless integration with your yard. Call or text us today for a free estimate!'
     ],
     treeServices: ['Erosion Control', 'Proper Drainage', 'Large & Small Projects', 'Durable Materials'],
@@ -308,7 +308,7 @@ const SERVICES_DATA: Record<string, {
     title: 'Fence Installation', category: 'Landscaping Services',
     subHeadline: 'Custom Fencing for Security, Privacy, and Style',
     description: [
-      'At Beavers Tree Service and Landscaping Inc., we provide expert fencing solutions for residential and commercial properties throughout the Triangle. From durable wood and vinyl fences to chain link and decorative metal, our licensed and insured team ensures precise installation and long lasting results.',
+      'At Beavers Tree Service &amp; Landscaping Inc., we provide expert fencing solutions for residential and commercial properties throughout the Triangle. From durable wood and vinyl fences to chain link and decorative metal, our licensed and insured team ensures precise installation and long lasting results.',
       'Whether you want to secure your home or define a professional outdoor space for your business, we deliver custom fencing with quality craftsmanship and fair pricing. Call or text us today for your free estimate!'
     ],
     treeServices: ['Wood & Vinyl Fences', 'Chain Link & Metal', 'Privacy & Security', 'Precise Installation'],
@@ -318,7 +318,7 @@ const SERVICES_DATA: Record<string, {
     title: 'Expert Lawn Maintenance', category: 'Landscaping Services',
     subHeadline: 'Professional Lawn Care & Upkeep',
     description: [
-      'At Beavers Tree Service and Landscaping Inc., we provide professional lawn care for residential and commercial properties throughout the Triangle. Our licensed and insured team offers a full range of services including mowing, trimming, fertilization, weed control, and seasonal cleanup.',
+      'At Beavers Tree Service &amp; Landscaping Inc., we provide professional lawn care for residential and commercial properties throughout the Triangle. Our licensed and insured team offers a full range of services including mowing, trimming, fertilization, weed control, and seasonal cleanup.',
       "We focus on keeping your landscape healthy and perfectly manicured to enhance your property's curb appeal. Whether you need weekly maintenance or a one time cleanup, we deliver reliable results with clear communication in English and Spanish. Trust our family owned team to keep your yard looking its best all year long. Call or text us today for a free estimate!"
     ],
     treeServices: ['Mowing & Trimming', 'Fertilization', 'Weed Control', 'Seasonal Cleanup'],
@@ -349,13 +349,13 @@ export default function ServiceDetail() {
     <div className="w-full font-sans text-black bg-white">
 
       {/* 1. THEMED HERO HEADER — full-bleed color unique to each service */}
-      <section className={`${theme.heroBg} overflow-hidden py-16 relative`}>
+      <section className={`${theme.heroBg} overflow-hidden py-12 relative`}>
         {/* Subtle grid texture overlay */}
         <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'repeating-linear-gradient(0deg,transparent,transparent 40px,rgba(255,255,255,0.1) 40px,rgba(255,255,255,0.1) 41px),repeating-linear-gradient(90deg,transparent,transparent 40px,rgba(255,255,255,0.1) 40px,rgba(255,255,255,0.1) 41px)' }} />
         <div className="max-w-5xl mx-auto px-6 relative z-10">
           <div className="flex items-center justify-center gap-8 md:gap-16">
             <SilhouetteSlide side="left">
-              <TreeDeciduous className={`w-16 h-16 md:w-24 md:h-24 ${theme.heroText} opacity-30`} />
+              <Trees className={`w-16 h-16 md:w-24 md:h-24 ${theme.heroText} opacity-30`} />
             </SilhouetteSlide>
 
             <div className="flex flex-col items-center text-center flex-1 max-w-2xl">
@@ -371,14 +371,14 @@ export default function ServiceDetail() {
             </div>
 
             <SilhouetteSlide side="right">
-              <TreeDeciduous className={`w-16 h-16 md:w-24 md:h-24 ${theme.heroText} opacity-30`} />
+              <Trees className={`w-16 h-16 md:w-24 md:h-24 ${theme.heroText} opacity-30`} />
             </SilhouetteSlide>
           </div>
         </div>
       </section>
 
       {/* 2. CONTENT SECTION — themed background */}
-      <section className={`py-16 md:py-20 ${theme.heroBg} border-b-4 ${theme.blockBorder}`}>
+      <section className={`py-12 md:py-14 ${theme.heroBg} border-b-4 ${theme.blockBorder}`}>
         <div className="max-w-4xl mx-auto px-6 flex flex-col items-center text-center">
 
           <RevealSection>
@@ -440,10 +440,10 @@ export default function ServiceDetail() {
                   </div>
                   <p className="font-black text-white uppercase tracking-widest text-sm">Watch Our Crew In Action</p>
                 </div>
-                <video src="/showcasevid1.mp4" autoPlay muted loop playsInline className="w-full max-h-[480px] object-cover bg-black" />
+                <video src="/Video1.MOV" autoPlay muted loop playsInline className="w-full max-h-[480px] object-cover bg-black" />
               </div>
               <p className="text-white/50 text-sm font-medium text-center mt-3">
-                Actual Beavers Tree Service crew on a real residential removal job in the Triangle area.
+                Actual Beavers Tree Service &amp; Landscaping Inc. crew on a real residential removal job in the Triangle area.
               </p>
             </RevealSection>
           )}
@@ -468,7 +468,7 @@ export default function ServiceDetail() {
       {/* 3. FULL-WIDTH SERVICE PHOTO */}
       <section className="relative">
         <div className="w-full h-[50vh] md:h-[70vh] bg-black overflow-hidden">
-          <img src={service.image} alt={service.title} className="w-full h-full object-cover opacity-90 img-lift" />
+          <img src={service.image} alt={service.title} className="w-full h-full object-cover opacity-90 img-lift" width="1200" height="800" loading="lazy" />
           <div className={`absolute bottom-8 left-1/2 -translate-x-1/2 ${theme.heroBg} border-l-4 ${theme.blockBorder} px-8 py-4 rounded text-center backdrop-blur-sm`}>
             <p className={`${theme.accentBg === 'bg-[#FF8200]' ? 'text-[#FF8200]' : theme.accentText} font-black text-sm uppercase tracking-widest`}>{service.category}</p>
             <p className={`${theme.heroText} font-display font-black text-2xl uppercase`}>{service.title}</p>

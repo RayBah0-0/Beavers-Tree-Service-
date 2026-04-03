@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ShieldCheck, ArrowUpRight, CheckCircle2, Phone, TreeDeciduous, Axe, Leaf } from 'lucide-react';
+import { ShieldCheck, ArrowUpRight, CheckCircle2, Phone, Axe, Sprout, Trees } from 'lucide-react';
 import { motion } from 'motion/react';
 
 function RevealSection({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number; key?: React.Key }) {
@@ -34,7 +34,7 @@ function SilhouetteSlide({ side }: { side: 'left' | 'right' }) {
   }, []);
   return (
     <div ref={ref} className={side === 'left' ? 'ag-slide-left' : 'ag-slide-right'}>
-      <TreeDeciduous className="silhouette-icon w-16 h-16 md:w-24 md:h-24" />
+      <Trees className="silhouette-icon w-20 h-20 md:w-32 md:h-32" />
     </div>
   );
 }
@@ -66,7 +66,7 @@ export default function Services() {
           <div className="silhouette-header">
             <SilhouetteSlide side="left" />
             <RevealSection className="flex flex-col items-center text-center flex-1 max-w-2xl">
-              <span className="font-display font-bold uppercase tracking-widest text-[#FF8200] text-sm mb-2 block">
+              <span className="font-display font-black uppercase tracking-[0.2em] text-[#FF8200] text-xl mb-3 block">
                 What We Offer
               </span>
               <h1 className="text-4xl md:text-6xl font-display font-black text-black uppercase tracking-wide leading-tight">
@@ -83,7 +83,7 @@ export default function Services() {
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between flex-wrap gap-4">
           <div className="flex items-center gap-3">
             <div className="bg-black rounded p-2">
-              <TreeDeciduous className="w-6 h-6 text-[#FF8200]" />
+              <img src="/icons/tree.png" alt="" className="w-8 h-8 object-contain brightness-0 invert" />
             </div>
             <span className="font-black text-black text-xl uppercase tracking-widest">Tree Services</span>
           </div>
@@ -94,12 +94,12 @@ export default function Services() {
       </section>
 
       {/* 3. TREE SERVICES — BLACK background for maximum contrast */}
-      <section id="tree-services" className="py-20 bg-black">
+      <section id="tree-services" className="py-14 bg-black">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
             <RevealSection className="rounded-xl overflow-hidden shadow-2xl border-4 border-[#FF8200] h-[400px] lg:h-[600px] img-lift">
-              <img src="/showcase (5).jpg" alt="Tree Services in Action" className="w-full h-full object-cover" />
+              <img src="/showcase (5).jpg" alt="Tree Services in Action" className="w-full h-full object-cover" width="800" height="600" />
             </RevealSection>
 
             <RevealSection delay={150}>
@@ -155,8 +155,8 @@ export default function Services() {
       <section className="bg-black border-t-4 border-b-4 border-[#FF8200] py-8">
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between flex-wrap gap-4">
           <div className="flex items-center gap-3">
-            <div className="bg-[#FF8200] rounded p-2">
-              <Leaf className="w-6 h-6 text-black" />
+            <div className="bg-[#FF8200] rounded p-1.5">
+              <img src="/icons/grass.png" alt="" className="w-8 h-8 object-contain brightness-0 invert" />
             </div>
             <span className="font-black text-white text-xl uppercase tracking-widest">Landscaping Services</span>
           </div>
@@ -167,7 +167,7 @@ export default function Services() {
       </section>
 
       {/* 5. LANDSCAPING SERVICES — WHITE BG (alternating contrast) */}
-      <section id="landscaping-services" className="py-20 bg-white">
+      <section id="landscaping-services" className="py-14 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
@@ -195,7 +195,11 @@ export default function Services() {
                   >
                     <Link to={path} className="block">
                       <div className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-[#FF8200] group-hover:text-black shrink-0 mt-0.5 transition-colors" />
+                        {name === 'Lawn Maintenance' ? (
+                          <img src="/icons/cut grass.png" alt="" className="w-6 h-6 object-contain shrink-0 mt-0.5 group-hover:brightness-0 group-hover:invert" />
+                        ) : (
+                          <CheckCircle2 className="w-5 h-5 text-[#FF8200] group-hover:text-black shrink-0 mt-0.5 transition-colors" />
+                        )}
                         <div>
                           <p className="font-black text-black group-hover:text-black text-sm uppercase tracking-wide">{name}</p>
                           <p className="text-black/50 group-hover:text-black/80 text-xs mt-1 transition-colors">{desc}</p>
@@ -214,7 +218,7 @@ export default function Services() {
             </RevealSection>
 
             <RevealSection className="rounded-xl overflow-hidden shadow-2xl border-4 border-black h-[400px] lg:h-[600px] img-lift">
-              <img src="/showcase.jpg" alt="Landscaping Projects" className="w-full h-full object-cover" />
+              <img src="/showcase.jpg" alt="Landscaping Projects" className="w-full h-full object-cover" width="800" height="600" />
             </RevealSection>
           </div>
         </div>
