@@ -123,21 +123,17 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   border: 2px solid #FF8200;
-  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-  animation: pulse-glow 2.5s ease-in-out infinite;
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 }
 .btn-pulse:hover {
   background: #000000;
   color: #ffffff;
   border-color: #FF8200;
-  animation: none;
   box-shadow: 0 0 0 4px rgba(255, 130, 0, 0.25);
+  transform: translateY(-2px);
 }
 
-@keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 130, 0, 0); }
-  50% { box-shadow: 0 0 0 8px rgba(255, 130, 0, 0.25); }
-}
+/* (Removed pulse-glow to fix non-composited animations) */
 
 /* ============================================================
    CONTACT FORM — ORANGE BORDER-BOTTOM GLOW ON FOCUS
@@ -373,3 +369,162 @@ section {
   cursor: col-resize;
 }
 
+/* ============================================================
+   SMOOTH SCROLLBAR
+   ============================================================ */
+html {
+  scroll-behavior: smooth;
+}
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #111; }
+::-webkit-scrollbar-thumb { background: #FF8200; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #cc6900; }
+
+/* ============================================================
+   HERO — RADIAL GRADIENT VIGNETTE
+   ============================================================ */
+.hero-vignette {
+  background: radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.65) 100%);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ============================================================
+   HERO — SCROLL CUE BOUNCE
+   ============================================================ */
+@keyframes bounce-cue {
+  0%, 100% { transform: translateX(-50%) translateY(0);   opacity: 0.6; }
+  50%       { transform: translateX(-50%) translateY(8px); opacity: 1;   }
+}
+.scroll-cue {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  animation: bounce-cue 2s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* ============================================================
+   CARD — ORANGE GLOW LIFT ON HOVER
+   ============================================================ */
+.card-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform, box-shadow;
+}
+.card-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(255, 130, 0, 0.18), 0 4px 16px rgba(0,0,0,0.10);
+}
+
+/* ============================================================
+   ICON HALO — glowing ambient ring
+   ============================================================ */
+.icon-halo {
+  position: relative;
+  transition: transform 0.3s ease;
+}
+.icon-halo::after {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 1.2rem;
+  background: rgba(255, 130, 0, 0.2);
+  filter: blur(12px);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+.icon-halo:hover { transform: translateY(-3px); }
+.icon-halo:hover::after { opacity: 1; }
+
+/* ============================================================
+   STATS NUMBER — subtle glow
+   ============================================================ */
+.stat-number {
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 40px rgba(255, 130, 0, 0.45);
+}
+
+/* ============================================================
+   GALLERY FILTER PILLS
+   ============================================================ */
+.filter-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 1.1rem;
+  border-radius: 9999px;
+  border: 2px solid rgba(0,0,0,0.12);
+  font-weight: 700;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  background: white;
+  color: #000;
+}
+.filter-pill:hover { border-color: #FF8200; color: #FF8200; }
+.filter-pill.active {
+  background: #FF8200;
+  color: #000;
+  border-color: #FF8200;
+  box-shadow: 0 4px 14px rgba(255,130,0,0.30);
+}
+
+/* ============================================================
+   GALLERY IMAGE — gradient caption reveal
+   ============================================================ */
+.gallery-caption-reveal {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 55%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.2rem 1rem;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+.group:hover .gallery-caption-reveal { opacity: 1; }
+
+/* ============================================================
+   REVIEW CARD — top accent bar on hover
+   ============================================================ */
+.review-card-hover {
+  position: relative;
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+.review-card-hover::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: #FF8200;
+  border-radius: 0.75rem 0.75rem 0 0;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  z-index: 1;
+}
+.review-card-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.35); }
+.review-card-hover:hover::before { transform: scaleX(1); }
+
+/* ============================================================
+   FOOTER — subtle grid texture
+   ============================================================ */
+.footer-grid-bg {
+  background-image:
+    repeating-linear-gradient(0deg,  transparent, transparent 40px, rgba(255,130,0,0.035) 40px, rgba(255,130,0,0.035) 41px),
+    repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(255,130,0,0.035) 40px, rgba(255,130,0,0.035) 41px);
+}
+
+/* ============================================================
+   MOBILE — Better spacing
+   ============================================================ */
+@media (max-width: 768px) {
+  .silhouette-header { padding: 3rem 1rem 2.5rem; gap: 1rem; }
+}

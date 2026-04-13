@@ -77,14 +77,17 @@ export default function AboutUs() {
 
             {/* Right — text */}
             <RevealSection delay={150}>
-              {/* 20+ Years badge — Bold Black block, Orange text — ANCHORED (not floating) */}
-              <div className="years-badge mb-8">
-                <span className="years-number">25+</span>
-                <span className="years-label">Years Experience</span>
-              </div>
+              <div className="flex flex-col items-start gap-4 mb-8">
+                <div className="inline-flex items-center gap-4 bg-[#FF8200] p-4 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-[rgba(0,0,0,0.1)]">
+                  <div className="bg-white text-black font-black text-4xl px-4 py-2 rounded-lg leading-none">25<span className="text-[#FF8200]">+</span></div>
+                  <div className="flex flex-col text-left pr-2">
+                    <span className="text-black font-black uppercase text-sm leading-tight tracking-wider">Years<br/>Experience</span>
+                  </div>
+                </div>
 
-              <div className="inline-flex items-center gap-2 border border-black/20 rounded px-4 py-2 mb-6 text-sm font-bold uppercase tracking-widest text-black">
-                <ShieldCheck className="w-4 h-4" /> Who We Are
+                <div className="inline-flex items-center gap-2 border border-black/20 rounded px-4 py-2 text-sm font-bold uppercase tracking-widest text-black">
+                  <ShieldCheck className="w-4 h-4" /> Who We Are
+                </div>
               </div>
 
               <h2 className="text-4xl md:text-5xl font-display font-black text-black mb-6 leading-tight uppercase">

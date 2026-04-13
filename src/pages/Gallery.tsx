@@ -3,15 +3,17 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ZoomIn, X, TreeDeciduous } from 'lucide-react';
 
 const PROJECT_PHOTOS = [
-  { file: 'showcase.jpg', caption: 'Sod Installation' },
-  { file: 'showcase (2).jpg', caption: 'Stump Removal' },
-  { file: 'showcase (3).jpg', caption: 'Tree Removal' },
-  { file: 'showcase (4).jpg', caption: 'Crane Service' },
-  { file: 'showcase (5).jpg', caption: 'Emergency Response' },
-  { file: 'showcase (6).jpg', caption: 'Retaining Wall' },
-  { file: 'showcase (7).jpg', caption: 'Paver Installation' },
-  { file: 'showcase (8).jpg', caption: 'Tree Trimming' },
+  { file: 'showcase.jpg',       caption: 'Sod Installation',   category: 'Landscaping' },
+  { file: 'showcase (2).jpg',   caption: 'Stump Removal',      category: 'Tree Services' },
+  { file: 'showcase (3).jpg',   caption: 'Tree Removal',       category: 'Tree Services' },
+  { file: 'showcase (4).jpg',   caption: 'Crane Service',      category: 'Tree Services' },
+  { file: 'showcase (5).jpg',   caption: 'Emergency Response', category: 'Tree Services' },
+  { file: 'showcase (6).jpg',   caption: 'Retaining Wall',     category: 'Landscaping' },
+  { file: 'showcase (7).jpg',   caption: 'Paver Installation', category: 'Landscaping' },
+  { file: 'showcase (8).jpg',   caption: 'Tree Trimming',      category: 'Tree Services' },
 ];
+
+const FILTER_CATEGORIES = ['All', 'Tree Services', 'Landscaping'];
 
 function RevealSection({ children, className = '', delay = 0 }: { children: React.ReactNode; className?: string; delay?: number; key?: React.Key }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -52,6 +54,7 @@ function SilhouetteSlide({ side }: { side: 'left' | 'right' }) {
 export default function Gallery() {
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
   const [lightboxCaption, setLightboxCaption] = useState('');
+  const [activeFilter, setActiveFilter] = useState('All');
 
   return (
     <div className="w-full font-sans text-black bg-white">
@@ -81,9 +84,22 @@ export default function Gallery() {
             <h2 className="text-4xl md:text-5xl font-display font-black text-black mb-4 leading-tight uppercase">
               OUR LATEST <span className="text-[#FF8200]">WORK</span>
             </h2>
-            <p className="text-lg text-black/60 max-w-2xl mx-auto mb-16 font-medium leading-relaxed">
+            <p className="text-lg text-black/60 max-w-2xl mx-auto mb-10 font-medium leading-relaxed">
               Browse through our recent tree removals, emergency storm cleanups, and precision landscaping projects across the Triangle area.
             </p>
+
+            {/* Filter pills */}
+            <div className="flex flex-wrap justify-center gap-3 mb-14">
+              {FILTER_CATEGORIES.map(cat => (
+                <button
+                  key={cat}
+                  onClick={() => setActiveFilter(cat)}
+                  className={`filter-pill${activeFilter === cat ? ' active' : ''}`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
           </RevealSection>
 
           {/* 
@@ -91,9 +107,11 @@ export default function Gallery() {
             Hover over one → it expands, siblings dim to 0.7 opacity.
           */}
           <div className="gallery-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {PROJECT_PHOTOS.map((photo, index) => (
+            {PROJECT_PHOTOS
+              .filter(p => activeFilter === 'All' || p.category === activeFilter)
+              .map((photo, index) => (
               <motion.div
-                key={index}
+                key={photo.file}
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.06, duration: 0.45 }}
@@ -101,7 +119,7 @@ export default function Gallery() {
                   setLightboxImage(`/${photo.file}`);
                   setLightboxCaption(photo.caption);
                 }}
-                className="gallery-item group relative self-start overflow-hidden rounded shadow-md cursor-pointer aspect-[4/5]"
+                className="gallery-item group relative self-start overflow-hidden rounded shadow-md cursor-pointer aspect-[4/5] card-lift"
               >
                 <img
                   src={`/${photo.file}`}
@@ -111,10 +129,11 @@ export default function Gallery() {
                   width="400"
                   height="500"
                 />
-                {/* Hover overlay */}
-                <div className="absolute inset-0 bg-black/55 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center pointer-events-none">
-                  <ZoomIn className="w-10 h-10 text-white mb-2" />
-                  <span className="text-white font-bold text-sm uppercase tracking-widest">{photo.caption}</span>
+                {/* Gradient caption reveal */}
+                <div className="gallery-caption-reveal">
+                  <ZoomIn className="w-7 h-7 text-white mb-1.5" />
+                  <span className="text-white font-black text-sm uppercase tracking-widest drop-shadow">{photo.caption}</span>
+                  <span className="text-[#FF8200] text-xs font-bold uppercase tracking-widest mt-0.5">{photo.category}</span>
                 </div>
                 {/* Orange bottom bar */}
                 <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#FF8200] opacity-0 group-hover:opacity-100 transition-opacity" />

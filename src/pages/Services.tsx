@@ -49,11 +49,11 @@ const TREE_SERVICES = [
 ];
 
 const LANDSCAPE_SERVICES = [
-  { name: 'Sod Installation', path: '/services/sod-installation', desc: 'Instant, lush lawn transformations.' },
-  { name: 'Paver Installation', path: '/services/paver-installation', desc: 'Custom patios and durable walkways.' },
-  { name: 'Retaining Wall Installation', path: '/services/retaining-wall-installation', desc: 'Erosion control that looks great.' },
-  { name: 'Fence Installation', path: '/services/fence-installation', desc: 'Privacy, security, and curb appeal.' },
-  { name: 'Lawn Maintenance', path: '/services/lawn-maintenance', desc: 'Consistent care for a perfect yard.' },
+  { name: 'Sod Installation', path: '/services/sod-installation', desc: 'Instant, lush lawn transformations.', icon: '/icons/grass.png' },
+  { name: 'Paver Installation', path: '/services/paver-installation', desc: 'Custom patios and durable walkways.', icon: '/icons/gardener.png' },
+  { name: 'Retaining Wall Installation', path: '/services/retaining-wall-installation', desc: 'Erosion control that looks great.', icon: '/icons/earth.png' },
+  { name: 'Fence Installation', path: '/services/fence-installation', desc: 'Privacy, security, and curb appeal.', icon: '/icons/tree.png' },
+  { name: 'Lawn Maintenance', path: '/services/lawn-maintenance', desc: 'Consistent care for a perfect yard.', icon: '/icons/cut grass.png' },
 ];
 
 export default function Services() {
@@ -185,7 +185,7 @@ export default function Services() {
 
               {/* Service cards — black on white, orange border on hover */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10">
-                {LANDSCAPE_SERVICES.map(({ name, path, desc }) => (
+                {LANDSCAPE_SERVICES.map(({ name, path, desc, icon }) => (
                   <motion.div
                     key={name}
                     whileHover={{ scale: 1.03, background: '#FF8200' }}
@@ -195,8 +195,8 @@ export default function Services() {
                   >
                     <Link to={path} className="block">
                       <div className="flex items-start gap-3">
-                        {name === 'Lawn Maintenance' ? (
-                          <img src="/icons/cut grass.png" alt="" className="w-6 h-6 object-contain shrink-0 mt-0.5 group-hover:brightness-0 group-hover:invert" />
+                        {icon ? (
+                          <img src={icon} alt="" className="w-6 h-6 object-contain shrink-0 mt-0.5 group-hover:brightness-0 group-hover:invert" />
                         ) : (
                           <CheckCircle2 className="w-5 h-5 text-[#FF8200] group-hover:text-black shrink-0 mt-0.5 transition-colors" />
                         )}

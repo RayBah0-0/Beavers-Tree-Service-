@@ -4,7 +4,7 @@ import { MapPin, Phone, Mail, CheckCircle2 } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-black border-t-4 border-[#FF8200] pt-16 pb-12 overflow-hidden relative">
+    <footer className="bg-black border-t-4 border-[#FF8200] pt-16 pb-12 overflow-hidden relative footer-grid-bg">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
 
@@ -20,7 +20,7 @@ export default function Footer() {
               />
               <div className="flex flex-col">
                 <span className="text-xl font-logo text-black leading-none uppercase tracking-tight">
-                  Beavers <span className="text-[#FF8200]">Tree</span>
+                  Beavers <span className="text-[#FF8200]">Tree Service</span>
                 </span>
                 <span className="text-[10px] font-bold text-black/60 tracking-[0.2em] uppercase mt-0.5">
                   &amp; Landscaping Inc.

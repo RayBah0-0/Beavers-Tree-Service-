@@ -77,8 +77,16 @@ export default function Navbar() {
 
             {/* Mobile: Logo + Toggle */}
             <div className="flex items-center justify-between w-full lg:hidden">
-              <Link to="/" className="flex-shrink-0 bg-white p-2 rounded my-1">
-                <img src="/Logo.png" alt="Beavers Tree Service & Landscaping Inc. Logo" className="h-8 w-auto object-contain" width="32" height="32" />
+              <Link to="/" className="flex items-center gap-2.5 flex-shrink-0 my-1.5 group">
+                <img src="/Logo.png" alt="Beavers Tree Service & Landscaping Inc. Logo" className="h-[42px] w-auto object-contain brightness-0 invert" width="42" height="42" />
+                <div className="flex flex-col">
+                  <span className="text-[1.35rem] font-logo text-white leading-none uppercase tracking-tight">
+                    Beavers <span className="text-[#FF8200]">Tree</span>
+                  </span>
+                  <span className="text-[8px] font-bold text-white/80 tracking-[0.2em] uppercase mt-1">
+                    &amp; Landscaping Inc.
+                  </span>
+                </div>
               </Link>
               <button className="text-white p-2" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
                 {isOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}

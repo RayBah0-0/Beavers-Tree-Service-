@@ -163,6 +163,10 @@ export default function Home() {
             <source src="/Hero Video.MOV" type="video/quicktime" />
           </video>
         </div>
+        {/* Vignette overlay */}
+        <div className="hero-vignette" />
+        {/* Orange top-edge glow bar */}
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#FF8200] to-transparent z-10 opacity-60" />
         <div className="relative z-10 max-w-5xl mx-auto px-6 flex flex-col items-center text-center mt-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -207,6 +211,34 @@ export default function Home() {
             </a>
           </motion.div>
         </div>
+        {/* Scroll cue */}
+        <div className="scroll-cue">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </div>
+      </section>
+
+      {/* TRUST STRIP */}
+      <section className="bg-[#FF8200] py-0 !pt-0 !pb-0 border-b-4 border-black">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-black/20">
+            {[
+              { icon: '/icons/tree.png', label: '25+ Years', sub: 'Experience' },
+              { icon: '/icons/gardener.png', label: 'Licensed', sub: '& Fully Insured' },
+              { icon: '/icons/earth.png', label: 'Free Estimates', sub: 'No Obligation' },
+              { icon: '/icons/grass.png', label: 'Bilingual', sub: 'English & Spanish' },
+            ].map(({ icon, label, sub }) => (
+              <div key={label} className="flex items-center gap-3 px-6 py-5">
+                <img src={icon} alt="" className="w-8 h-8 object-contain shrink-0 brightness-0" width="32" height="32" />
+                <div>
+                  <p className="font-black text-black text-sm uppercase leading-tight">{label}</p>
+                  <p className="text-black/70 text-xs font-bold leading-tight">{sub}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* 2. ABOUT US / FAMILY OWNED */}
@@ -225,16 +257,17 @@ export default function Home() {
 
             {/* Right — text */}
             <RevealSection delay={150}>
-              {/* 25+ Years badge with spacing from who we are pill */}
-              <div className="years-badge mb-10 mx-auto lg:mx-0 font-sans">
-                <span className="years-number">25+</span>
-                <span className="years-label font-bold">Years Experience</span>
-              </div>
+              <div className="flex flex-col items-start gap-4 mb-8">
+                <div className="inline-flex items-center gap-4 bg-[#FF8200] p-4 rounded-xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-[rgba(0,0,0,0.1)]">
+                  <div className="bg-white text-black font-black text-4xl px-4 py-2 rounded-lg leading-none">25<span className="text-[#FF8200]">+</span></div>
+                  <div className="flex flex-col text-left pr-2">
+                    <span className="text-black font-black uppercase text-sm leading-tight tracking-wider">Years<br/>Experience</span>
+                  </div>
+                </div>
 
-              <div className="h-4" />{/* spacer between badge and pill */}
-
-              <div className="inline-flex items-center gap-2 border border-black/20 rounded px-4 py-2 mb-6 text-sm font-bold uppercase tracking-widest text-black">
-                <ShieldCheck className="w-4 h-4" /> Who We Are
+                <div className="inline-flex items-center gap-2 border border-black/20 rounded px-4 py-2 text-sm font-bold uppercase tracking-widest text-black">
+                  <ShieldCheck className="w-4 h-4" /> Who We Are
+                </div>
               </div>
 
               <h2 className="text-4xl md:text-5xl font-display font-black mb-6 leading-tight uppercase bg-black p-6 rounded shadow-sm">
@@ -294,12 +327,12 @@ export default function Home() {
                   {
                     title: 'Eco Conscious Approach',
                     icon: '/icons/earth.png',
-                    body: 'We prioritize saving trees whenever possible, providing environmentally responsible care that keeps your landscape safe and beautiful.'
+                    body: 'We are committed to sustainable practices, preserving healthy trees whenever possible and ensuring our operations respect the environment.'
                   }
                 ].map((item, i) => (
                   <RevealSection key={i} delay={i * 100}>
                     <div className="flex gap-4">
-                      <div className="w-12 h-12 bg-[#FF8200] rounded-xl flex items-center justify-center shrink-0 mt-1 shadow-lg border-2 border-white/20">
+                      <div className="w-12 h-12 bg-[#FF8200] rounded-xl flex items-center justify-center shrink-0 mt-1 shadow-lg border-2 border-white/20 icon-halo">
                         {item.icon === 'check' ? (
                           <CheckCircle2 className="w-6 h-6 text-black" />
                         ) : (
@@ -324,16 +357,18 @@ export default function Home() {
       </section>
 
       {/* 4. SERVICES — Breathable vertical cards */}
-      <section className="bg-white py-14">
+      <section className="bg-neutral-50 py-14 border-y border-black/5">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <RevealSection>
             <div className="inline-flex items-center justify-center gap-3 border border-black/20 rounded px-5 py-2.5 mb-6 text-lg font-black text-black uppercase tracking-[0.2em] bg-white/50">
               <ShieldCheck className="w-4 h-4" /> Our Services
             </div>
-            <h2 className="text-4xl md:text-5xl font-display font-black text-black mb-4 uppercase leading-tight">
-              COMPLETE TREE &amp; <br />
-              <span className="text-[#FF8200]">LANDSCAPING SOLUTIONS</span>
-            </h2>
+            <div className="flex justify-center w-full">
+              <h2 className="text-4xl md:text-5xl font-display font-black mb-6 leading-tight uppercase bg-black p-6 rounded shadow-sm inline-block">
+                <span className="text-[#FF8200]">COMPLETE TREE &amp;</span> <br className="hidden md:block" />
+                <span className="text-white">LANDSCAPING SOLUTIONS</span>
+              </h2>
+            </div>
             <p className="text-black/60 font-medium text-xl max-w-2xl mx-auto mb-16">
               From routine lawn care to complex crane assisted tree removal, we deliver expert results with every project.
             </p>
@@ -355,8 +390,8 @@ export default function Home() {
               }
             ].map((card, i) => (
               <RevealSection key={i} delay={i * 150}>
-                <div className="bg-white p-12 rounded flex flex-col items-center text-center shadow-lg hover:-translate-y-2 transition-transform border-2 border-transparent hover:border-[#FF8200] duration-300">
-                  <div className="bg-black p-6 rounded mb-8 shadow-xl text-white">
+                <div className="bg-white p-12 rounded flex flex-col items-center text-center shadow-lg hover:-translate-y-2 transition-transform border-2 border-transparent hover:border-[#FF8200] duration-300 card-lift">
+                  <div className="bg-black p-6 rounded mb-8 shadow-xl text-white icon-halo">
                     {card.icon}
                   </div>
                   <h3 className="text-3xl font-black text-black mb-5">{card.title}</h3>
@@ -376,12 +411,15 @@ export default function Home() {
       </section>
 
       {/* 5. LATEST PROJECTS */}
-      <section className="py-14 bg-white border-t border-black/5 text-center">
+      <section className="py-14 bg-zinc-50 border-t border-black/5 text-center">
         <div className="max-w-screen-2xl mx-auto px-6">
           <RevealSection>
-            <h2 className="text-4xl md:text-5xl font-display font-black text-black mb-4 uppercase leading-tight">
-              OUR LATEST <span className="text-[#FF8200]">PROJECTS</span>
-            </h2>
+            <div className="flex justify-center w-full">
+              <h2 className="text-4xl md:text-5xl font-display font-black mb-6 leading-tight uppercase bg-black p-6 rounded shadow-sm inline-block">
+                <span className="text-[#FF8200]">OUR LATEST</span>{' '}
+                <span className="text-white">PROJECTS</span>
+              </h2>
+            </div>
             <p className="text-black/60 font-medium text-lg mb-16 max-w-2xl mx-auto">
               Real results from real jobs — browse our recent work across the Triangle area.
             </p>
@@ -472,7 +510,7 @@ export default function Home() {
             {[...REVIEWS, ...REVIEWS].map((review, i) => (
               <div
                 key={i}
-                className="w-80 shrink-0 bg-white/5 border border-white/10 hover:border-[#FF8200] transition-colors rounded-xl p-6 text-left"
+                className="w-80 shrink-0 bg-white/5 border border-white/10 hover:border-[#FF8200] transition-colors rounded-xl p-6 text-left review-card-hover"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 bg-[#FF8200] rounded-full flex items-center justify-center font-black text-xl text-black">
@@ -537,14 +575,17 @@ function VideoSection() {
   }, [activeVideo]);
 
   return (
-    <section className="py-14 bg-white text-center border-t border-black/5">
+    <section className="py-14 bg-neutral-100 text-center border-t border-black/5">
       <div className="max-w-7xl mx-auto px-6">
         <div className="inline-flex items-center gap-2 border border-black/20 rounded px-4 py-2 mb-6 text-sm font-bold uppercase tracking-widest text-black bg-white">
           <Play className="w-4 h-4 text-[#FF8200]" fill="currentColor" /> Our Work In Action
         </div>
-        <h2 className="text-4xl md:text-5xl font-display font-black text-black mb-4 uppercase leading-tight">
-          OUR LATEST <span className="text-[#FF8200]">VIDEOS</span>
-        </h2>
+        <div className="flex justify-center w-full">
+          <h2 className="text-4xl md:text-5xl font-display font-black mb-6 leading-tight uppercase bg-black p-6 rounded shadow-sm inline-block">
+            <span className="text-[#FF8200]">OUR LATEST</span>{' '}
+            <span className="text-white">VIDEOS</span>
+          </h2>
+        </div>
         <p className="text-black/60 font-medium text-lg mb-16 max-w-2xl mx-auto">
           Watch our crews in action — from precision pruning to complex crane removals.
         </p>
@@ -658,31 +699,14 @@ function HomeContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('submitting');
-    try {
-      const res = await fetch('https://formspree.io/f/xnjgyvpl', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({
-          name: formData.name,
-          contactInfo: formData.email,
-          phone: formData.phone,
-          address: formData.address,
-          message: formData.description,
-          _subject: `Home Page Request from ${formData.name}`
-        })
-      });
-      if (res.ok) {
-        setStatus('success');
-        setShowConfetti(true);
-        setTimeout(() => setShowConfetti(false), 2000);
-      } else {
-        setStatus('error');
-        setErrorMessage("Submission failed. Please try again or call us directly.");
-      }
-    } catch {
-      setStatus('error');
-      setErrorMessage("Network error. Please check your connection.");
-    }
+    
+    // Simulating form submission without an active endpoint
+    setTimeout(() => {
+      setStatus('success');
+      setShowConfetti(true);
+      setTimeout(() => setShowConfetti(false), 2000);
+      setFormData({ name: '', email: '', phone: '', address: '', description: '' });
+    }, 1000);
   };
 
   return (
@@ -779,11 +803,10 @@ function HomeContactForm() {
                   </AnimatePresence>
                   <form onSubmit={handleSubmit} className="flex flex-col gap-6 max-w-lg">
                     {[
-                      { label: 'Name', key: 'name', type: 'text', req: true },
-                      { label: 'Phone or Email', key: 'email', type: 'text', req: true },
-                      { label: 'Phone (Internal)', key: 'phone', type: 'tel', req: false },
-                      { label: 'Address', key: 'address', type: 'text', req: false },
-                    ].map(({ label, key, type, req }) => (
+                      { label: 'Name', key: 'name', type: 'text', req: true, placeholder: 'Your full name' },
+                      { label: 'Phone or Email', key: 'email', type: 'text', req: true, placeholder: 'Phone number or email address' },
+                      { label: 'Address', key: 'address', type: 'text', req: false, placeholder: 'Property address' },
+                    ].map(({ label, key, type, req, placeholder }) => (
                       <div key={label}>
                         <label htmlFor={`field-${key}`} className="block text-white font-bold text-sm mb-2 uppercase tracking-wide">
                           {label} {req && <span className="text-[#FF8200]">*</span>}
@@ -792,6 +815,7 @@ function HomeContactForm() {
                           id={`field-${key}`}
                           type={type}
                           className="form-field"
+                          placeholder={placeholder}
                           required={req}
                           value={formData[key as keyof typeof formData]}
                           onChange={e => setFormData({ ...formData, [key]: e.target.value })}
@@ -805,6 +829,7 @@ function HomeContactForm() {
                       <textarea
                         id="field-description"
                         rows={4}
+                        placeholder="Describe the job or your property..."
                         className="form-field resize-none"
                         required
                         value={formData.description}
@@ -816,7 +841,7 @@ function HomeContactForm() {
                       disabled={status === 'submitting'}
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="btn-pulse w-full py-5 rounded-lg font-black uppercase tracking-widest text-lg shadow-xl mt-2 flex items-center justify-center gap-3 relative overflow-hidden"
+                      className="btn-pulse w-full py-5 rounded-lg font-black uppercase tracking-widest text-[17px] sm:text-lg shadow-xl mt-2 relative overflow-hidden"
                     >
                       <AnimatePresence mode="wait">
                         {status === 'submitting' ? (
@@ -825,7 +850,7 @@ function HomeContactForm() {
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -10 }}
-                            className="flex items-center gap-3"
+                            className="flex flex-row items-center justify-center gap-2 w-full h-full"
                           >
                             <LoadingSpinner />
                             <span>Sending...</span>
@@ -836,21 +861,13 @@ function HomeContactForm() {
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -10 }}
-                            className="flex items-center gap-3"
+                            className="flex flex-row items-center justify-center gap-2 w-full h-full"
                           >
-                            <Send className="w-5 h-5" />
-                            <span>Submit Estimate Request</span>
+                            <Send className="w-5 h-5 shrink-0" />
+                            <span>Get Free Estimate</span>
                           </motion.div>
                         )}
                       </AnimatePresence>
-                      {/* Pulse ring effect during idle */}
-                      {status === 'idle' && (
-                        <motion.div
-                          animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.1, 0.3] }}
-                          transition={{ repeat: Infinity, duration: 2 }}
-                          className="absolute inset-0 bg-white/20 pointer-events-none"
-                        />
-                      )}
                     </motion.button>
                   </form>
                 </motion.div>

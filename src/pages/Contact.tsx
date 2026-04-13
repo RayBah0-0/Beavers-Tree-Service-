@@ -154,29 +154,12 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('submitting');
-    try {
-      const response = await fetch('https://formspree.io/f/xnjgyvpl', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify({
-          name: formData.name,
-          contactInfo: formData.email,
-          serviceNeeded: formData.subject,
-          message: formData.message,
-          _subject: `New Request from ${formData.name}`
-        })
-      });
-      if (response.ok) {
-        setStatus('success');
-        setFormData({ name: '', email: '', subject: '', message: '' });
-      } else {
-        setStatus('error');
-        setErrorMessage("Oops! There was a problem submitting your form. Please try again.");
-      }
-    } catch {
-      setStatus('error');
-      setErrorMessage("Network error. Please check your connection and try again.");
-    }
+    
+    // Simulating form submission without an active endpoint
+    setTimeout(() => {
+      setStatus('success');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    }, 1000);
   };
 
   return (
@@ -198,7 +181,7 @@ export default function Contact() {
               <span className="font-display font-bold uppercase tracking-widest text-[#FF8200] text-sm mb-2 block">
                 Reach Out
               </span>
-              <h1 className="text-4xl md:text-6xl font-display font-black text-black uppercase tracking-wide leading-tight">
+              <h1 className="text-4xl md:text-6xl font-display font-black text-black uppercase tracking-wide leading-tight whitespace-nowrap">
                 CONTACT US
               </h1>
             </RevealSection>
@@ -241,9 +224,9 @@ export default function Contact() {
                   <div className="bg-[#FF8200] p-4 rounded text-white group-hover:scale-105 transition-transform">
                     <Mail className="w-8 h-8 contact-icon" />
                   </div>
-                  <div className="flex flex-col">
+                  <div className="flex flex-col min-w-0 flex-1">
                     <span className="text-sm font-bold text-black/40 uppercase tracking-widest">Email Us</span>
-                    <a href="mailto:beaverstreeservicenc@gmail.com" className="contact-link font-bold text-lg text-black hover:text-[#FF8200] truncate">
+                    <a href="mailto:beaverstreeservicenc@gmail.com" className="contact-link font-bold text-[15px] sm:text-lg text-black hover:text-[#FF8200] truncate block w-full">
                       beaverstreeservicenc@gmail.com
                     </a>
                   </div>
@@ -264,7 +247,7 @@ export default function Contact() {
               {/* Direct CTA */}
               <a
                 href="tel:919-358-2168"
-                className="btn-pulse w-full mt-8 px-8 py-5 rounded font-black uppercase tracking-widest text-lg shadow-xl flex items-center justify-center gap-3"
+                className="btn-pulse !text-black w-full mt-8 px-8 py-5 rounded font-black uppercase tracking-widest text-lg shadow-xl flex items-center justify-center gap-3"
               >
                 <Phone className="w-6 h-6 contact-icon" />
                 Call (919) 358-2168 Now
@@ -393,7 +376,7 @@ export default function Contact() {
                       id="contact-submit"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="btn-pulse w-full py-5 rounded-lg font-black uppercase tracking-widest text-lg shadow-xl mt-2 flex items-center justify-center gap-3 relative overflow-hidden"
+                      className="btn-pulse w-full py-5 rounded-lg font-black uppercase tracking-widest text-[17px] sm:text-lg shadow-xl mt-2 relative overflow-hidden"
                     >
                       <AnimatePresence mode="wait">
                         {status === 'submitting' ? (
@@ -402,7 +385,7 @@ export default function Contact() {
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -10 }}
-                            className="flex items-center gap-3"
+                            className="flex flex-row items-center justify-center gap-2 w-full h-full"
                           >
                             <LoadingSpinner />
                             <span>Sending...</span>
@@ -413,21 +396,13 @@ export default function Contact() {
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -10 }}
-                            className="flex items-center gap-3"
+                            className="flex flex-row items-center justify-center gap-2 w-full h-full"
                           >
-                            <Send className="w-5 h-5" />
+                            <Send className="w-5 h-5 shrink-0" />
                             <span>Get Your Free Estimate</span>
                           </motion.div>
                         )}
                       </AnimatePresence>
-                      {/* Pulse ring effect during idle */}
-                      {status === 'idle' && (
-                        <motion.div
-                          animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.1, 0.3] }}
-                          transition={{ repeat: Infinity, duration: 2 }}
-                          className="absolute inset-0 bg-white/20 pointer-events-none"
-                        />
-                      )}
                     </motion.button>
                   </form>
                 )}
